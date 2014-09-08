@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Distance</th
+  </thead>
+  <tbody>
+    <%- @resorts.each do |resort| %>
+      <tr>
+        <td><%= resort.name %></td>
+        <td><%= resort.distance_text %></td>
+      </tr>
+
+    <%- end %>
+  </tbody>
+</table>
+
+<%= link_to 'New search', new_search_path %>

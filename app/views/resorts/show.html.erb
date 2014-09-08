@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @resort.name %>
+</p>
+
+<p>
+  <strong>Base:</strong>
+  <%= @resort.base %>
+</p>
+
+<p>
+  <strong>Temp:</strong>
+  <%= @resort.temp %>
+</p>
+
+<p>
+  <strong>Snowfall:</strong>
+  <%= @resort.snowfall %>
+</p>
+
+<p>
+  <strong>Gnarlocity:</strong>
+  <%= @resort.gnarlocity %>
+</p>
+
+<%= link_to 'Edit', edit_resort_path(@resort) %> |
+<%= link_to 'Back', resorts_path %>

@@ -1,0 +1,106 @@
+[
+  {
+    "name":"Arapahoe Basin",
+    "address":"Keystone, Colorado"
+  },
+  {
+    "name":"Aspen Highlands",
+    "address":"Aspen, Colorado"
+  },
+  {
+    "name":"Aspen Mountain",
+    "address":"Aspen, Colorado"
+  },
+  {
+    "name":"Beaver Creek",
+    "address":"Avon, Colorado"
+  },
+  {
+    "name":"Breckenridge",
+    "address":"Breckenridge, Colorado"
+  },
+  {
+    "name":"Buttermilk",
+    "address":"Aspen, Colorado"
+  },
+  {
+    "name":"Copper Mountain",
+    "address":"Copper Mountain, Colorado"
+  },
+  {
+    "name":"Crested Butte",
+    "address":"Crested Butte, Colorado"
+  },
+  {
+    "name":"Durango",
+    "address":"Durango, Colorado"
+  },
+  {
+    "name":"Echo Mountain",
+    "address":"Evergreen, Colorado"
+  },
+  {
+    "name":"Eldora",
+    "address":"Nederland, Colorado"
+  },
+  {
+    "name":"Hesperus",
+    "address":"Hesperus, Colorado"
+  },
+  {
+    "name":"Keystone",
+    "address":"Keystone, Colorado"
+  },
+  {
+    "name":"Loveland",
+    "address":"Silverthorne, Colorado"
+  },
+  {
+    "name":"Monarch",
+    "address":"Salida, Colorado"
+  },
+  {
+    "name":"Powderhorn",
+    "address":"Grand Junction, Colorado"
+  },
+  {
+    "name":"Silverton Mountain",
+    "address":"Silverton, Colorado"
+  },
+  {
+    "name":"Ski Cooper",
+    "address":"Leadville, Colorado"
+  },
+  {
+    "name":"Snowmass",
+    "address":"Aspen, Colorado"
+  },
+  {
+    "name":"Ski Granby Ranch",
+    "address":"Granby, Colorado"
+  },
+  {
+    "name":"Steamboat",
+    "address":"Steamboat Springs, Colorado"
+  },
+  {
+    "name":"Sunlight",
+    "address":"Glenwood Springs, Colorado"
+  },
+  {
+    "name":"Telluride",
+    "address":"Telluride, Colorado"
+  },
+  {
+    "name":"Vail",
+    "address":"Vail, Colorado"
+  },
+  {
+    "name":"Winter Park",
+    "address":"Winter Park, Colorado"
+  },
+  {
+    "name":"Wolf Creek",
+    "address":"Pagosa Springs, Colorado"
+  }
+]
