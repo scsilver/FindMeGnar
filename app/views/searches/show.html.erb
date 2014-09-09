@@ -1,13 +1,15 @@
 <table>
   <thead>
     <th>Name</th>
-    <th>Distance</th
+    <th>Distance</th>
+    <th>Temperature</th>
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
       <tr>
         <td><%= resort.name %></td>
         <td><%= resort.distance_text %></td>
+        <td><%= resort.temp  %> F&deg;</td>
       </tr>
 
     <%- end %>

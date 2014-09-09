@@ -1,14 +1,38 @@
 class GeoLocate
-  def self.locate(address)
-    api_key = 'AIzaSyBb3ZSbRxq6PQSsJmpTT9bR79HghrI9_LE'
-    resorts = Resort.all
-    destinations = resorts.map(&:address)
-    destination_string = CGI.escape destinations.join("|")
-    url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{CGI.escape(address)}&destinations=#{destination_string}=&key=#{api_key}"
-    distance_matrix = HTTParty.get url
+  attr_accessor :address, :api_key
+
+  def initialize(address)
+    self.address = address
+    self.api_key = \
+      'AIzaSyBb3ZSbRxq6PQSsJmpTT9bR79HghrI9_LE'
+  end
+
+  def address_param
+    CGI.escape address
+  end
+
+  def destination_param
+    CGI.escape resorts.map(&:address).join('|')
+  end
+
+  def locate
     resorts.each_with_index do |resort, i|
-      resort.distance_text = distance_matrix["rows"][0]["elements"][i]["distance"]["text"]
-      resort.distance_value = distance_matrix["rows"][0]["elements"][i]["distance"]["value"]
-    end.sort_by &:distance_value
+      resort.add_distance \
+        distance_from["rows"][0]["elements"][i]
+      GetStats.update(resort)
+    end
+    Resort.sort_by_distance resorts
+  end
+
+  def resorts
+    @resorts ||= Resort.all
+  end
+
+  def distance_from
+    @distance_from ||= HTTParty.get url
+  end
+
+  def url
+    "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{address_param}&destinations=#{destination_param}=&key=#{api_key}"
   end
 end
