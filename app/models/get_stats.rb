@@ -4,19 +4,21 @@ class GetStats
     self.api_key = 'f8096e4064a18bec'
   end
   def self.update(r)
-      @json_t = json(r.address)
-      if @json_t["response"]["error"] == nil then
-        r.temp = @json_t["current_observation"]["temp_f"]
+      @json_t = json(r.stationid)
+      if @json != nil then
+        r.base = @json["data"][1]["Snow Depth (in)"]
+
+       # r.temp = @json_t["current_observation"]["temp_f"]
       else
         r.temp = 'error'
       end
   end
-  def self.url(address)
-    "http://api.wunderground.com/api/f8096e4064a18bec/conditions/q/CO/#{CGI.escape address.slice(0..(address.index(',')-1))}.json"
+  def self.url(stationid)
+    apiurl = "http://api.powderlin.es/station/#{CGI.escape stationid}"
   end
 
-  def self.json(address)
-    @json = HTTParty.get url(address)
+  def self.json(stationid)
+    @json = HTTParty.get url(stationid)
   end
 
 end

@@ -23,13 +23,14 @@ ActiveRecord::Schema.define(version: 20140908042109) do
 
   create_table "resorts", force: true do |t|
     t.string   "name"
+    t.string   "address"
+    t.string   "stationid"
     t.string   "base"
     t.string   "temp"
     t.string   "snowfall"
     t.string   "gnarlocity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "address"
   end
 
 end

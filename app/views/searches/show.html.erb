@@ -3,6 +3,7 @@
     <th>Name</th>
     <th>Distance</th>
     <th>Temperature</th>
+    <th>Base (in)</th>
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
@@ -10,6 +11,7 @@
         <td><%= resort.name %></td>
         <td><%= resort.distance_text %></td>
         <td><%= resort.temp  %> F&deg;</td>
+        <td><%= resort.base  %> F&deg;</td>
       </tr>
 
     <%- end %>

@@ -19,7 +19,7 @@ class GeoLocate
     resorts.each_with_index do |resort, i|
       resort.add_distance \
         distance_from["rows"][0]["elements"][i]
-      GetStats.update(resort)
+       GetStats.update(resort)
     end
     Resort.sort_by_distance resorts
   end
@@ -33,6 +33,6 @@ class GeoLocate
   end
 
   def url
-    "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{address_param}&destinations=#{destination_param}=&key=#{api_key}"
+    url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{address_param}&destinations=#{destination_param}&key=#{api_key}"
   end
 end
