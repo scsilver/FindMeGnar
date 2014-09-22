@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-
-
+gem 'decent_exposure'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
@@ -13,6 +12,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
+
+gem 'whenever'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -29,7 +30,7 @@ gem 'pry'
 gem 'httparty'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'feedjira'
 # Use unicorn as the app server
 # gem 'unicorn'
 

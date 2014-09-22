@@ -1,24 +1,30 @@
 class GetStats
-  attr_accessor :api_key
-  def initialize
-    self.api_key = 'f8096e4064a18bec'
-  end
-  def self.update(r)
-      @json_t = json(r.stationid)
-      if @json != nil then
-        r.base = @json["data"][1]["Snow Depth (in)"]
-
-       # r.temp = @json_t["current_observation"]["temp_f"]
-      else
-        r.temp = 'error'
+  def self.update_2hourly_weather
+      @resorts = Resort.all
+      @resorts.each do |r|
+        apikey = 'f8096e4064a18bec'
+        url = "http://api.wunderground.com/api/#{apikey}/conditions/q/#{r.address}.json"
+        @results = HTTParty.get url
+      
+        r.temp = @results["current_observation"]["temp_f"]
+        r.save
+        #r.snowfallforecast
       end
   end
-  def self.url(stationid)
-    apiurl = "http://api.powderlin.es/station/#{CGI.escape stationid}"
-  end
+  def self.update_snow_stats
+    urls = "http://www.onthesnow.com/colorado/snow-rss.html"
+    feeds = Feedjira::Feed.fetch_and_parse urls
+    feeds.entries.first(22).each_with_index do |r, i|
+      name = r.title[/(.*)\s/,1]
+      resort = Resort.find_by(name: name)
+      resort.snowfall = r.summary.slice(40..42)
+      resort.base = r.summary.slice(88..91)
+      resort.save
+      end
+     # if @json != nil then
+      #  r.base = @json["data"][1]["Snow Depth (in)"]
 
-  def self.json(stationid)
-    @json = HTTParty.get url(stationid)
+     # else
+     # end
   end
-
 end

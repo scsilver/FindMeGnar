@@ -4,6 +4,7 @@
     <th>Distance</th>
     <th>Temperature</th>
     <th>Base (in)</th>
+    <th>24 hour Snowfall (in)</th>
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
@@ -11,11 +12,12 @@
         <td><%= resort.name %></td>
         <td><%= resort.distance_text %></td>
         <td><%= resort.temp  %> F&deg;</td>
-        <td><%= resort.base  %> F&deg;</td>
+        <td><%= resort.base  %> in</td>
+        <td><%= resort.snowfall  %> in</td>
       </tr>
 
     <%- end %>
   </tbody>
 </table>
 
-<%= link_to 'New search', new_search_path %>
+<%= link_to 'New search', '/searches/' %>

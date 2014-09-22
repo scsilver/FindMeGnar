@@ -19,8 +19,8 @@ class GeoLocate
     resorts.each_with_index do |resort, i|
       resort.add_distance \
         distance_from["rows"][0]["elements"][i]
-       GetStats.update(resort)
     end
+      # GetStats.update(resort)
     Resort.sort_by_distance resorts
   end
 
