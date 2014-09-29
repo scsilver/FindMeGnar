@@ -1,26 +1,6 @@
 <html class = "htmlshow">
-<table class= "table">
-  <thead>
-    <th>Name</th>
-    <th>Distance</th>
-    <th>Temperature</th>
-    <th>Base (in)</th>
-    <th>24 hour Snowfall (in)</th>
-  </thead>
-  <tbody>
-    <%- @resorts.each do |resort| %>
-      <tr>
-        <td><%= resort.name %></td>
-        <td><%= resort.distance_text %></td>
-        <td><%= resort.temp  %> F&deg;</td>
-        <td><%= resort.base  %> in</td>
-        <td><%= resort.snowfall  %> in</td>
-      </tr>
 
-    <%- end %>
-  </tbody>
-</table>
-
+  <%= render 'table' %>
   <%= render 'formshow' %>
   
 
