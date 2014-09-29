@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+
   resources :searches, only: [:create, :new]
 
   resources :resorts
