@@ -33,6 +33,6 @@ class GeoLocate
   end
 
   def url
-    url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{address_param}&destinations=#{destination_param}&key=#{api_key}"
+    url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{address_param}&destinations=#{destination_param}&key=#{api_key}&units=imperial"
   end
 end
