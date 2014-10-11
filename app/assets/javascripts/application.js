@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -12,7 +13,9 @@
 //
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery
+//= require jquery-1.2.6
+//= require jquery.marquee
+
 //= require_tree .
 ////= require twitter/bootstrap
 

@@ -1,47 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class = "htmlnew">
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>jQuery Marquee Demo</title>
-    <style type="text/css" media="screen">
-    <!--
-      
-      
-      div.demo {
-          border: 3px solid #0BB427;
-          padding: 10px;
-          margin-bottom: 10px;
-      }
-      
-      div.original {
-          border: 3px solid #B40400;
-          padding: 10px;
-      }
-      
-      .pointer {
-          cursor: pointer;
-      }
-      
-      code {
-          padding: 3px;
-          background-color: #eee;
-      }
-    -->
-    </style>
-
-    <script src="jquery-1.2.6.js" type="text/javascript"></script>
-    <script>
 /**
 * author Remy Sharp
 * url http://remysharp.com/tag/marquee
 */
-
+ 
 (function ($) {
     $.fn.marquee = function (klass) {
         var newMarquee = [],
             last = this.length;
-
+ 
         // works out the left or right hand reset position, based on scroll
         // behavior, current direction and new direction
         function getReset(newDir, marqueeRedux, marqueeState) {
@@ -60,7 +26,7 @@
             }
             return r;
         }
-
+ 
         // single "thread" animation
         function animateMarquee() {
             var i = newMarquee.length,
@@ -78,7 +44,7 @@
                 if ($marqueeRedux.data('paused') !== true) {
                     // TODO read scrollamount, dir, behavior, loops and last from data
                     marqueeRedux[marqueeState.axis] += (marqueeState.scrollamount * marqueeState.dir);
-
+ 
                     // only true if it's hit the end
                     hitedge = marqueeState.dir == -1 ? marqueeRedux[marqueeState.axis] <= getReset(marqueeState.dir * -1, marqueeRedux, marqueeState) : marqueeRedux[marqueeState.axis] >= getReset(marqueeState.dir * -1, marqueeRedux, marqueeState);
                     
@@ -87,9 +53,9 @@
                             marqueeState.dir *= -1; // flip
                         }
                         marqueeState.last = -1;
-
+ 
                         $marqueeRedux.trigger('stop');
-
+ 
                         marqueeState.loops--;
                         if (marqueeState.loops === 0) {
                             if (marqueeState.behavior != 'slide') {
@@ -98,7 +64,7 @@
                                 // corrects the position
                                 marqueeRedux[marqueeState.axis] = getReset(marqueeState.dir * -1, marqueeRedux, marqueeState);
                             }
-
+ 
                             $marqueeRedux.trigger('end');
                         } else {
                             // keep this marquee going
@@ -110,7 +76,7 @@
                         newMarqueeList.push(marqueeRedux);
                     }
                     marqueeState.last = marqueeRedux[marqueeState.axis];
-
+ 
                     // store updated state only if we ran an animation
                     $marqueeRedux.data('marqueeState', marqueeState);
                 } else {
@@ -118,7 +84,7 @@
                     newMarqueeList.push(marqueeRedux);                    
                 }
             }
-
+ 
             newMarquee = newMarqueeList;
             
             if (newMarquee.length) {
@@ -150,7 +116,7 @@
             if ($marquee.attr('loop') == -1 && marqueeState.behavior == 'slide') {
                 marqueeState.loops = 1;
             }
-
+ 
             $marquee.remove();
             
             // add padding
@@ -172,9 +138,9 @@
             }).data('marqueeState', marqueeState); // finally: store the state
             
             // todo - rerender event allowing us to do an ajax hit and redraw the marquee
-
+ 
             newMarquee.push(marqueeRedux);
-
+ 
             marqueeRedux[marqueeState.axis] = getReset(marqueeState.dir, marqueeRedux, marqueeState);
             $marqueeRedux.trigger('start');
             
@@ -183,63 +149,7 @@
                 animateMarquee();
             }
         });            
-
+ 
         return $(newMarquee);
     };
 }(jQuery));
-    </script>
-
-    <script type="text/javascript">
-    <!--
-    $(function () {
-        // basic version is: $('div.demo marquee').marquee() - but we're doing some sexy extras
-        
-        $('div.demo marquee').marquee('pointer').mouseover(function () {
-            $(this).trigger('stop');
-        }).mouseout(function () {
-            $(this).trigger('start');
-        }).mousemove(function (event) {
-            if ($(this).data('drag') == true) {
-                this.scrollLeft = $(this).data('scrollX') + ($(this).data('x') - event.clientX);
-            }
-        }).mousedown(function (event) {
-            $(this).data('drag', true).data('x', event.clientX).data('scrollX', this.scrollLeft);
-        }).mouseup(function () {
-            $(this).data('drag', false);
-        });
-    });
-    //-->
-    </script>
-  </head>
-    <div class ="container-fluid">
-        <div class= "row">
-       <div class="col-xs-4 col-xs-offset-2">
-           <h1>Find Me Gnar</h1>
-            <p>Enter your location to find the best snow around</p>
-
-
-        <%= render 'form' %>
-
-            </div>
-          
-   <div class = "col-xs-4 ">
-            <marquee behavior="scroll" direction="down" scrollamount="2" height=100% width=100%><p><ul>
-  <% Tweet.last(10).each do |f| %>
-    <li>
-      <%= f.user + ":"%> <br>
-        <%= auto_link(f.content) %>
-    </li>
-  <% end %>
-</ul></marquee>
-    </div>
-    </div>
-    </div>
-
-    
-  
-</html>
-
-
-
-
-

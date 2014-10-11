@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rails_autolink'
 gem 'twitter'
 gem 'decent_exposure'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

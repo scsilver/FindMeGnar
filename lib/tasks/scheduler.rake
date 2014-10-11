@@ -13,7 +13,7 @@ task :gettwit => :environment do
   	config.access_token_secret = "d72lBVSmeve18Vzssu44lUjUq2XPAgx8VLCz15Nw4SkFW"
 	end
 
-	client.search("Keystone", :result_type => "recent").take(3).each do |tweet|  	
+	client.search("Keystone OR Breckenridge OR Vail OR Abasin Ski", :result_type => "recent").take(10).each do |tweet|  	
         Tweet.create(user: tweet.user.screen_name, content: tweet.text)
 	end
     	
