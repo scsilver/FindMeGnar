@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tweets
+
   resources :posts
 
   resources :searches, only: [:create, :new]
