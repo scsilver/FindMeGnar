@@ -13,9 +13,9 @@
 //
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-1.2.6
+//= require jquery
 //= require jquery.marquee
-
+//= jquery.prettyPhoto
 //= require_tree .
 ////= require twitter/bootstrap
 

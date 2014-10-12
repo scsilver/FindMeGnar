@@ -19,9 +19,16 @@
         <td><%= resort.snowfall  %> in</td>
         <td><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td>
           
-        <td><%= auto_link(resort.webcam) %></td></tf>
+        <td><%- resort.webcam.split(",").each_with_index do |webc, i| %>
+          <a href="<%= webc %>" data-featherlight="image">Camera: <%=i+1%></a>
+           <br>
+            <%- end %>
+          </td></tf>
       </tr>
 
     <%- end %>
-  </tbody>
+    </tbody>
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    
 </table>
