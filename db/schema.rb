@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011034631) do
+ActiveRecord::Schema.define(version: 20141012010722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20141011034631) do
     t.string   "temp"
     t.string   "snowfall"
     t.string   "gnarlocity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "webcam"
+  end
+
+  create_table "rides", force: true do |t|
+    t.string   "resort_to"
+    t.string   "location_from"
+    t.datetime "time_start"
+    t.datetime "time_end"
+    t.integer  "spots"
+    t.string   "contact_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

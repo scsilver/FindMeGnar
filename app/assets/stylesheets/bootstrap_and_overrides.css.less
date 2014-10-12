@@ -26,6 +26,17 @@
 // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
+.container-fluid {
+  background-image: url('Background.jpg');
+  background-size:cover;    
+  background-position: top left;
+  min-width: 1600px;
+  min-height: 900px;
+ }
+.htmlshow {
+  background-image: url('Show.jpg'); 
+  background-position: 70% 0%;
+      }
 marquee {
     color: white;
 }
@@ -33,11 +44,30 @@ body {
     margin: 0px;
     padding: 0px;
 }
+input, select {
+   
+   box-shadow: none;
+    border-style: solid;
+    border-color: white;
+   margin-top: 10px;
+   font-size: 100%;  
+   color: white;
+  
+   display: inline-block;   
+   background-color: transparent;
+}
+select option{
+    color: black;
+}
+
+
+    
 .table {
   color: white;
   font-size: 150%;
-  background: rgba(255,255,255,.10) 
 
+background-image: url('Show.jpg'); 
+  background-position: 70% 0%;
   }
 @link-color: #ffffff;
 div.special > div[class*="col-xs-6"] {
@@ -111,15 +141,24 @@ p
   color: white;
   }
 
-.container-fluid {
-  background-image: url('Background.jpg');
-  background-size:cover;    
-  background-position: top left;
-  min-width: 1600px;
-  min-height: 900px;
- }
-.htmlshow {
-  background-image: url('Show.jpg'); 
-  background-position: 70% 0%;
-      }
 
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+    text-decoration: none;
+    font-size: 150;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}

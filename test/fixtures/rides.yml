@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resort_to: MyString
+  location_from: MyString
+  time_start: 2014-10-11 18:06:34
+  time_end: 2014-10-11 18:06:34
+  spots: 1
+  contact_info: MyString
+
+two:
+  resort_to: MyString
+  location_from: MyString
+  time_start: 2014-10-11 18:06:34
+  time_end: 2014-10-11 18:06:34
+  spots: 1
+  contact_info: MyString

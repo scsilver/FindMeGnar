@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rides
+
   resources :tweets
 
   resources :posts
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   resources :resorts
 
   root to: "searches#new"
+  match 'rides/query' => 'rides#query', :as => :rides_query, via: [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

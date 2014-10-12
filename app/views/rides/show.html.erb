@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resort to:</strong>
+  <%= @ride.resort_to %>
+</p>
+
+<p>
+  <strong>Location from:</strong>
+  <%= @ride.location_from %>
+</p>
+
+<p>
+  <strong>Time start:</strong>
+  <%= @ride.time_start %>
+</p>
+
+<p>
+  <strong>Time end:</strong>
+  <%= @ride.time_end %>
+</p>
+
+<p>
+  <strong>Spots:</strong>
+  <%= @ride.spots %>
+</p>
+
+<p>
+  <strong>Contact info:</strong>
+  <%= @ride.contact_info %>
+</p>
+
+<%= link_to 'Edit', edit_ride_path(@ride) %> |
+<%= link_to 'Back', rides_path %>

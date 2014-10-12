@@ -6,6 +6,8 @@
     <th>Temperature</th>
     <th>Base (in)</th>
     <th>24 hour Snowfall (in)</th>
+    <th>Rides</th>
+    <th>Webcam</th>
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
@@ -15,6 +17,9 @@
         <td><%= resort.temp  %> F&deg;</td>
         <td><%= resort.base  %> in</td>
         <td><%= resort.snowfall  %> in</td>
+        <td><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td>
+          
+        <td><%= auto_link(resort.webcam) %></td></tf>
       </tr>
 
     <%- end %>
