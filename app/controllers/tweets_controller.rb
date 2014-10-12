@@ -3,12 +3,7 @@ class TweetsController < ApplicationController
 
   # GET /tweets
   # GET /tweets.json
-  def index
-		
-	
-end
-
-
+  def indexs
     @tweets = Tweet.all
   end
 
