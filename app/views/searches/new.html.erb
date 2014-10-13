@@ -26,6 +26,7 @@
             <div class = "col-xs-4 ">
                 <marquee behavior="scroll" direction="down" scrollamount="2" height=100% width=100%><p><ul>
                     <% Tweet.last(100).each do |f| %>
+                        <hr>
                         <li>
                         <%= f.user + ":"%> <br>
                         <%= auto_link(f.content, :html => { :target => '_blank' }) %>
