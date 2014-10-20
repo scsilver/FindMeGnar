@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html xml:lang="en" lang="en" class = "htmlnew">
-  <head>
+  <div class="row">
+            <div class = "col-xs-12">
+                <div class="ticker">
+                <marquee behavior="scroll" direction="left" scrollamount="2" height="16px" width=100%>
+                    
+                    <p class="ticker"> 
+                        <%- Resort.all.each do |r| %>
+                            <%="| " +r.symbol + ": "  %>
+                            <% if r.temp == nil  %> 
+                            <%= "Nil"  %>
+                            <%else%>
+                            <%= r.temp + " F "%>
+                            <%end%> 
+                        <% end%>
+                    </p>
+                </marquee>
+                </div>
 
-  </head>
+            </div>
+        </div>
+
     <div class ="container-fluid">
+
         <div class= "row">
             <div class="col-xs-4">
                 <h1>Find Me Gnar</h1>
@@ -24,7 +43,7 @@
             </div>
           
             <div class = "col-xs-4 ">
-                <marquee behavior="scroll" direction="down" scrollamount="2" height=100% width=100%><p><ul>
+                <marquee behavior="scroll" direction="down" scrollamount="2" height= "700px" width=100%><p><ul>
                     <% Tweet.last(100).each do |f| %>
                         <hr>
                         <li>
@@ -38,29 +57,12 @@
             
         </div>
 
-        <div class="row">
-            <div class = "col-xs-12">
-                <marquee behavior="scroll" direction="left" scrollamount="2" height=100% width=100%>
-
-                    <p> 
-                        <%- Resort.all.each do |r| %>
-                            <%=r.symbol + ": "  %>
-                            <% if r.temp == nil  %> 
-                            <%= "0F"  %>
-                            <%else%>
-                            <%= r.temp + " F"%>
-                            <%end%> 
-                        <% end%>
-                    </p>
-                </marquee>
-
-            </div>
-        </div>
+       
     </div>
-
+ 
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-    
+  
   
 </html>
 

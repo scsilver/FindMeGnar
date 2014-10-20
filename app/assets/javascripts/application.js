@@ -17,7 +17,12 @@
 //= require jquery.marquee
 //= jquery.prettyPhoto
 //= require_tree .
+//= require 'greensock/TweenMax'
+//= require bootstrap-timepicker
+//= require moment
+//= require bootstrap-datetimepicker
 ////= require twitter/bootstrap
+
 
 $(function(){
   /* Your JavaScript goes here... */

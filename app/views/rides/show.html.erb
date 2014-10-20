@@ -1,11 +1,10 @@
-<p id="RideInfo"><%= notice %></p>
-
+<div class="ridewrap">
 <div class="continer-fluid">
   <div class="col-xs-4">
   <h1>Destination</h1>
   <div class="destination">
      <%= @ride.resort_to %>
-  </div>
+  
 
   <h1>Origin</h1>
   <div class="origin">
@@ -34,6 +33,8 @@
   </div>
   </div>
 </div>
+</div>
 <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <%= link_to 'Back', rides_path %> |
 <%= link_to 'Home', new_search_path %>
+</div>

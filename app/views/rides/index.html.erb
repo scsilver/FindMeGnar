@@ -1,11 +1,12 @@
 
-<html class="ridelisthtml">
-<p class="ridelist" id= "0">Listing rides</p>
-<div class="continer-fluid">
+
+<div class="continer-fluid" id="0">
+  </div>
+
 
   <body onload="return ran_col()">
     <% @rides.each_with_index do |ride, i| %>
-
+     <div class="portfolio">
       <div class="row" id= "<%=i+1%>" >
         <div class="col-xs-4">
           <p class="ridelist">Destination</p>
@@ -17,9 +18,7 @@
             <div class="origin">
              <%= ride.location_from %>
             </div>
-        </div>
         
-        <div class="col-xs-4">
           <p class="ridelist">Time of Departure To Resort</p>
             <div class="time_depart">
                <%= ride.time_start.strftime("%A %m/%d/%y at %I:%M%p")%>
@@ -29,9 +28,7 @@
             <div class="time_return">
                <%= ride.time_end.strftime("%A %m/%d/%y at %I:%M%p")%>
             </div>
-        </div>
         
-        <div class="col-xs-4">
           <p class="ridelist">Spots:</p>
             <div class="spots">
               <%= ride.spots %>
@@ -43,8 +40,7 @@
           
             </div>
         </div>
-
-   
+ </div>
 </div>
 <% end %>
      <%= link_to 'Home', new_search_path %>    
@@ -53,13 +49,11 @@
             function ran_col() {
               for (i = 0; i < 5; i++) {
                //function name
-                var color = '#'; // hexadecimal starting symbol
-                var letters = ['96ceb4','ffeead','ff6f69','ffcc5c','88d8b0']; //Set your colors here
-                color += letters[i];
+                 // hexadecimal starting symbol
+                var letters =  ['#CFF09E','#A8DBA8','#CFF09E','#79BD9A','#CFF09E','#3B8686','#CFF09E','#0B486B','#CFF09E'] //Set your colors here
+                color = letters[i];
                 document.getElementById(i).style.background = color; // Setting the random color on your div element.
             }}
 </script>
 </body>
-
-</html>
     

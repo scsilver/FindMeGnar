@@ -1,5 +1,15 @@
-<p id="notice"><%= notice %></p>
-
+<!-- Wrap all page content here -->
+<div id="wrap">
+  
+  
+  
+  <!-- Begin page content -->
+  <div class="container">
+    <div class="page-header">
+      <h1><%= @resort.name%></h1>
+    </div>
+    <p class="lead"><%= @resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %> </p>
+     <div class="resortwrap"
 <p>
   <strong>Name:</strong>
   <%= @resort.name %>
@@ -25,5 +35,11 @@
   <%= @resort.gnarlocity %>
 </p>
 
-<%= link_to 'Edit', edit_resort_path(@resort) %> |
+
 <%= link_to 'Back', resorts_path %>
+
+
+</div>
+
+
+
