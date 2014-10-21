@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 gem 'momentjs-rails', '>= 2.8.1'
-gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
-gem 'bootstrap-timepicker-rails'
 gem 'greensock-rails'
 gem 'rails_autolink'
 gem 'twitter'
