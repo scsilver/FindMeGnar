@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require featherlight
  *= require bootstrap_and_overrides
+ *= require featherlight
 
  *= require_tree .
  *= require_self

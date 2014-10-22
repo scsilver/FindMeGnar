@@ -5,7 +5,7 @@
 ////////////////////////////////////////////
 var scroll_pos, count = 0;
 var scroll_point = 300;
-var colors =  ['#CFF09E','#A8DBA8','#0B486B','#CFF09E','#79BD9A','#CFF09E','#3B8686','#CFF09E'];
+var colors =  ['#2B1C0A','#59569E','#4DB7F9','#CCF6F9','#ECEDED'];
 
 ////////////////////////////////////////////
 
@@ -14,7 +14,7 @@ var colors =  ['#CFF09E','#A8DBA8','#0B486B','#CFF09E','#79BD9A','#CFF09E','#3B8
 ////////////////////////////////////////////
 $(function() {
 	TweenMax.to('body', 1, {
-		backgroundColor: colors[2]
+		backgroundColor: colors[0]
 	});
 
 	$('.featured-image').addClass("hidden").viewportChecker({
