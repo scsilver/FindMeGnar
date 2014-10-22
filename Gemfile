@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'jquery-turbolinks'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'greensock-rails'
 gem 'rails_autolink'
