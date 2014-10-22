@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :searches, only: [:create, :new]
+  resources :searches do
+    member do
+      post 'default'
+    end
+  end
 
   resources :resorts
 

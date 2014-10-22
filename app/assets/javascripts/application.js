@@ -14,53 +14,14 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require jquery.marquee
 //= require 'greensock/TweenMax'
 //= require moment
+//= require work
+//= require turbolinks
+
 
 
 $(function(){
-  ////////////////////////////////////////////
-
-//			VARS
-
-////////////////////////////////////////////
-var scroll_pos, count = 0;
-var scroll_point = 300;
-var colors =  ['#ffeead','#ff6f69','#ffcc5c','#88d8b0'];
-
-////////////////////////////////////////////
-
-//			READY
-
-////////////////////////////////////////////
-$(function() {
-	TweenMax.to('body', 1, {
-		backgroundColor: colors[1]
-	});
-
-	$('.featured-image').addClass("hidden").viewportChecker({
-		classToAdd: 'visible animated fadeInUp', // Class to add to the elements when they are visible
-		offset: 100
-	});
-});
-
-////////////////////////////////////////////
-
-//			SCROLL
-
-////////////////////////////////////////////
-$(window).scroll(function(e) {
-	scroll_pos = $(this).scrollTop();
-	$('.portfolio').each(function(i) {
-		if (scroll_pos + 100 > $('.portfolio').outerHeight() * i && scroll_pos <= $('.portfolio').height() * (i + 1)) {
-			TweenMax.to('body', 1, {
-				backgroundColor: colors[i]
-			});
-		}
-	});
-
-});
-
+ 
 });
