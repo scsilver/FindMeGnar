@@ -1,14 +1,14 @@
 
 
-<div class="continer-fluid" id="0">
-  </div>
 
 
   <body onload="return ran_col()">
     <% @rides.each_with_index do |ride, i| %>
+    <div class= "container">
+
      <div class="portfolio">
       <div class="row" id= "<%=i+1%>" >
-        <div class="col-xs-4">
+        <div class="col-xs-8">
           <p class="ridelist">Destination</p>
             <div class="destination">
               <%= ride.resort_to %>
@@ -40,6 +40,7 @@
           
             </div>
         </div>
+      </div>
  </div>
 </div>
 <% end %>
@@ -56,4 +57,4 @@
             }}
 </script>
 </body>
-    
+</div>
