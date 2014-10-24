@@ -1,100 +1,51 @@
-<!-- Wrap all page content here -->
-<div id="wrap">
-  
-  
-  
-  <!-- Begin page content -->
-  <div class="container">
+  <div class="container-fluid">
 
-    <div class="page-header">
-      <h1><%= @resort.name%></h1>
-    </div>
-    <p class="lead"><%= @resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %> </p>
-<p>
-  <strong>Name:</strong>
-  <%= @resort.name %>
-</p>
+         <div class="row boxy ">
 
-<p>
-  <strong>Base:</strong>
-  <%= @resort.base %>
-</p>
 
-<p>
-  <strong>Temp:</strong>
-  <%= @resort.temp %>
-</p>
+                  <h1><%= @resort.name%></h1>
 
-<p>
-  <strong>Snowfall:</strong>
-  <%= @resort.snowfall %>
-</p>
+          </div>
+                            
 
-<p>
-  <strong>Gnarlocity:</strong>
-  <%= @resort.gnarlocity %>
-</p>
-  </div>
+                    <div class="row boxy">
 
-  <body >
-    <% Ride.where(resort_to: @resort.name).each_with_index do |ride, i| %>
-    <div class="container">
-     <div class="portfolio">
-      <div class="row" id= "<%=i+1%>" >
-        <div class="col-xs-4">
-          <p class="ridelist">Destination</p>
-          
-              <%= ride.resort_to %>
 
-          <p class="ridelist">Origin</p>
-             <%= ride.location_from %>
-        
-          <p class="ridelist">Time of Departure To Resort</p>
-            <div class="time_depart">
-               <%= ride.time_start.strftime("%A %m/%d/%y at %I:%M%p")%>
+            <div class="col-xs-8 resort" padding="0px">
+                  
+
+              <p class="lead"> <%= @resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %> </p>
             </div>
-    
-          <p class="ridelist">Time of Departure To Home</p>
-            <div class="time_return">
-               <%= ride.time_end.strftime("%A %m/%d/%y at %I:%M%p")%>
+            <div class="col-xs-4">
+
+              <p>
+                <strong>Name:</strong>
+                <%= @resort.name %>
+              </p>
+
+              <p>
+                <strong>Base:</strong>
+                <%= @resort.base %>
+              </p>
+
+              <p>
+                <strong>Temp:</strong>
+                <%= @resort.temp %>
+              </p>
+
+              <p>
+                <strong>Snowfall:</strong>
+                <%= @resort.snowfall %>
+              </p>
+
+              <p>
+                <strong>Gnarlocity:</strong>
+                <%= @resort.gnarlocity %>
+              </p>
             </div>
-        
-          <p class="ridelist">Spots:</p>
-            <div class="spots">
-              <%= ride.spots %>
-            </div>
-
-          <p class="ridelist">Contact info:</p>
-            <div class="spots">
-              <%= ride.contact_info %>
-          
-            </div>
-        </div>
-                </div>
-
- </div>
-</div>
-<% end %>
-     <%= link_to 'Home', new_search_path %>    
-
-<script type="text/javascript">
-            function ran_col() {
-              for (i = 0; i < 5; i++) {
-               //function name
-                 // hexadecimal starting symbol
-                var letters =  ['#CFF09E','#A8DBA8','#CFF09E','#79BD9A','#CFF09E','#3B8686','#CFF09E','#0B486B','#CFF09E'] //Set your colors here
-                color = letters[i];
-                document.getElementById(i).style.background = color; // Setting the random color on your div element.
-            }}
-</script>
-</body>
-    
+          </div>
+                            <%= render 'rides/ride' %>
 
 
-<%= link_to 'Back', resorts_path %>
-
-</div>
-
-
-
+      </div>
 

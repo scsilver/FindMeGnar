@@ -30,10 +30,10 @@
           <li><%= link_to 'Rides', rides_path %> </li>
           <li><a href="/">Buddies</a></li>
           <li class="dropdown">
-            <a href="/" class="dropdown-toggle" data-toggle="dropdown">Ride By Resort <b class="caret"></b></a>
+            <a href="/" class="dropdown-toggle" data-toggle="dropdown">Resorts <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <%- Resort.all.reverse.each do |r| %>
-                        <li><a href="/rides?resort_to=<%=r.name%>"><%=r.name %></a></li>
+                        <li><a href="/resorts/<%=r.id%>"><%=r.name %></a></li>
               <% end%>
             
             </ul>
@@ -43,7 +43,27 @@
     </div>
   </div>
       <%= yield %></div>
-      
-
 </body>
+
+      <div class="navbar navbar-default navbar-fixed-bottom">
+                <div class="ticker">
+                <marquee behavior="scroll" direction="left" scrollamount="2" height="16px" width=100%>
+                    
+                    <p > 
+                        <%- Resort.all.each do |r| %>
+                            <%a="| " +r.symbol + ": "  %>
+                            <% if r.temp == nil  %> 
+                            <%a=a + "Nil"  %>
+                            <%else%>
+                            <%a=a + r.temp + " F "%>
+                            <%end%> 
+                      <%=link_to a, resort_path(r)%>
+
+                        <% end%>
+                    </p>
+                </marquee>
+                </div>
+
+            </div>
+        
 </html>

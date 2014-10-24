@@ -1,36 +1,47 @@
- <div class="container">
-   <div class="page-header">
-<h1>Resorts</h1>
-    </div>
-<p class="lead"><%= %> </p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Base</th>
-      <th>Temp</th>
-      <th>Snowfall</th>
-      <th>Gnarlocity</th>
-      <th>Rides</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container-fluid">
     <% @resorts.each do |resort| %>
-      <tr>
-        <td><%= resort.name %></td>
-        <td><%= resort.base %></td>
-        <td><%= resort.temp %></td>
-        <td><%= resort.snowfall %></td>
-        <td><%= resort.gnarlocity %></td>
-        <td><%= Ride.where(resort_to: resort.name).count %></td>
-        <td><%= link_to 'Show', resort %></td>
-        </td>
-      </tr>
+
+         <div class="row boxy ">
+
+
+     
+
+  
+                            
+
+
+
+            <div class="col-xs-8 resort" padding="0px">
+                              <h1><%=link_to resort.name, resort_path(resort)%></h1> 
+
+              <p class="lead"> <%= resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %> </p>
+            </div>
+            <div class="col-xs-4">
+
+             
+
+              <p>
+                <strong>Base:</strong>
+                <%= resort.base %>
+              </p>
+
+              <p>
+                <strong>Temp:</strong>
+                <%= resort.temp %>
+              </p>
+
+              <p>
+                <strong>Snowfall:</strong>
+                <%= resort.snowfall %>
+              </p>
+
+              <p>
+                <strong>Gnarlocity:</strong>
+                <%= resort.gnarlocity %>
+              </p>
+            </div>
+      </div>
+
     <% end %>
-  </tbody>
-</table>
-</div>
-</div>
+      </div>
+

@@ -1,11 +1,6 @@
 <div class="container-fluid">
-  <div class="row boxy ">
 
-
-                  <h1>Find a Ride</h1>
-
-          </div>
-              <% @rides.each_with_index do | ride, i| %>
+<% Ride.where(resort_to: @resort.name).each_with_index do | ride, i| %>
 
           <div class="row boxy">
 
@@ -31,5 +26,6 @@
         </div>
         </div>
                 </div>
+
                 <% end %>
-              </div>
+                </div>

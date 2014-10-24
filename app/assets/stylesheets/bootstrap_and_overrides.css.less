@@ -26,89 +26,58 @@
 // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
-.container {
-  background-color: white;
-   margin: 20px;
-   padding: 20px;
-   box-shadow: 5px 5px 0px 0px rgba(0,0,0,.25);
-}
+//general
 .wrap{
-    padding-top: 60px;
-    color: black;
-    
-
+  background: linear-gradient(  #00A8C6 , #F9F2E7 10%, #F9F2E7 90%,#8FBE00);
+  min-height: 100vh;
+  min-width: 100vw;
 }
-.portfolio {
-}
-.ridelisthtml div {
-  color: black;
-  padding: 10px;
-  
-}
-.ridelist {
-  font-size: 150%;
-  color: black;
-  
+.dropdown-menu
+{
+  max-height: 500px;
+     overflow: auto;
 }
 .container-fluid {
-  width: 100%;
-  background-color: #0B486B;
- }
-.htmlshow {
-  background-color: black;
-  background-position: 70% 0%;
-      }
-marquee {
-    color: white;
-}
-body {
-    margin: 0px;
-    padding: 0px;
-}
-input, select {
-   
-   box-shadow: none;
-    border-style: solid;
-    border-color: white;
-   margin-top: 10px;
-   font-size: 100%;  
-   color: white;
+  padding-top: 60px;
+  padding-bottom: 40px;
   
-   display: inline-block;   
-   background-color: transparent;
 }
-select option{
-    color: black;
-}
-
-.ticker{
-  background-color: white;
-  color: #0B486B;
+.col-xs-3 {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-color: rgb(231, 231, 231);
+  min-height: 180px;
 
 }
-    
-table{}
-th, td {
-  color: black;
-  padding: 20px;
+.boxy {
+  min-height: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(231, 231, 231);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,.5);
+  background-color: rgba(255,255,255,1);
+}
+.navbar {
 
-background-color: rgba(255,255,255ss,.10); 
-  }
-@link-color: #ffffff;
-div.special > div[class*="col-xs-6"] {
-       padding: 0; 
-  }
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5), -2px -2px 2px 2px rgba(0,0,0,.5);
+  min-height: 30px;
+}
 
+.ticker {
+  vertical-align: center;
+  font-size: 28px;
+}
+
+//submits
 .submitfield{
    box-shadow: none;
    height: 50px;
    font-family: 'Verdana';
-    border-style: solid;
-    border-color: white;
-   font-size: 175%;  
-   color: white;
-   width: 100%;
-   padding: 3px;
+   border-style: solid;
+   border-color: black;
+   color: black;
    display: inline-block;   
    background-color: rgba(255,255,255,.50);
    }
@@ -122,14 +91,13 @@ div.special > div[class*="col-xs-6"] {
    color: white;
    width: 100%;
    display: inline-block;   
-  background-color: rgba(0,0,0,.50) 
+  background-color: rgba(0,0,0,.50);
  }
 .submit {
    box-shadow: none;
    font-family: 'Reeler';
     border-style: solid;
     border-color: white;
-   margin-top: 10px;
    font-size: 200%;  
    color: white;
    width: 50%;
@@ -150,23 +118,22 @@ h2 {
   font-size: 140%;
   font-family:'Reeler';
    }
-@font-face {
-    font-family: 'Reeler';
-    src: font-url('Reeler.ttf') format('truetype');
-   }
+
 h1 {
   color: black;
-    font-family: 'Reeler';
-    font-size: 400%; 
+  font-family: 'Reeler';
+  font-size: 3vw;
   }
 p 
 {
   font-family: 'Verdana';
-  font-size: 160%;
-  color: black;
+  color: #555555;
+  font-size: 150;
   }
-
-
+@font-face {
+    font-family: 'Reeler';
+    src: font-url('Reeler.ttf') format('truetype');
+}
 a:link {
     color: black;
 }
