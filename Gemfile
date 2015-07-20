@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'right_http_connection', git: 'git://github.com/rightscale/right_http_connection.git', ref: '3359524d81'
 gem 'jquery-turbolinks'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'greensock-rails'
