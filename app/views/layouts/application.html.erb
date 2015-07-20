@@ -29,6 +29,8 @@
           <li ><a href="/resorts/">Resorts</a></li>
           <li><%= link_to 'Rides', rides_path %> </li>
           <li><a href="/">Buddies</a></li>
+          <div class="btn-group">
+
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                    <span data-bind="label">Resorts</span>&nbsp;<span class="caret"></span>
                  </button>
@@ -36,10 +38,8 @@
                    <%- Resort.all.reverse.each do |r| %>
                              <li><a href="/resorts/<%=r.id%>"><%=r.name %></a></li>
                    <% end%>
-                   <li><a href="#">Item 1</a></li>
-                   <li><a href="#">Another item</a></li>
-                   <li><a href="#">This is a longer item that will not fit properly</a></li>
                  </ul>
+          </div>
 
           </ul>
       </div><!--/.nav-collapse -->
