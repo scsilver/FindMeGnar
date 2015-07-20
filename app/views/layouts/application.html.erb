@@ -10,24 +10,18 @@
 </head>
 <body>
 
-  <div class="wrap">
+  <d8iv class="wrap">
 
   <!-- Fixed navbar -->
-  <div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar navbar-new navbar-fixed-top">
     <div class="container2">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Find Me Gnar</a>
+
+        <a class="navbar-brand" id="title" href="/">Find Me Gnar</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li ><a href="/resorts/">Resorts</a></li>
-          <li><%= link_to 'Rides', rides_path %> </li>
-          <li><a href="/">Buddies</a></li>
+          <li>
           <div class="btn-group">
 
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -35,37 +29,56 @@
                  </button>
                  <ul class="dropdown-menu" role="menu">
                    <%- Resort.all.reverse.each do |r| %>
-                             <li><a href="/resorts/<%=r.id%>"><%=r.name %></a></li>
+                             <li><a href="/resorts/<%=r.id%>" id="resort"><%=r.name %></a></li>
                    <% end%>
                  </ul>
+
           </div>
+        </li>
+        <li><%= link_to 'Rides', rides_path %> </li>
+
 
           </ul>
       </div><!--/.nav-collapse -->
     </div>
   </div>
       <%= yield %></div>
-</body>
 
-      <div class="navbar navbar-default navbar-fixed-bottom">
-                <div class="ticker">
-                <marquee behavior="scroll" direction="left" scrollamount="2" height="16px" width=100%>
 
-                    <p >
+                  <div class="navbar navbar-bottom navbar-fixed-bottom">
+                    <div class="container2">
+                    <div class="collapse navbar-collapse">
+
+                      <div class="collapse navbar-collapse">
+                         <marquee behavior="scroll" direction="left" scrollamount="2" height="30px" width=100%>
+                        <ul class="nav navbar-nav">
+
+
+
+
                         <%- Resort.all.each do |r| %>
-                            <%a="| " +r.symbol + ": "  %>
+                            <%a="  " +r.symbol + ": "  %>
                             <% if r.temp == nil  %>
                             <%a=a + "Nil"  %>
                             <%else%>
-                            <%a=a + r.temp + " F "%>
+                            <%a=a + r.temp + " F  "%>
                             <%end%>
+
+                    <li>
                       <%=link_to a, resort_path(r)%>
-
+                    </li>
                         <% end%>
-                    </p>
-                </marquee>
-                </div>
+                      </ul>
+                    </marquee>
+                    </div>
 
-            </div>
+              </div>
+              </div>
+              </div>
+
+
+
+
+                </body>
 
 </html>

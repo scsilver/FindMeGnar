@@ -2,7 +2,7 @@
 <html xml:lang="en" lang="en" class = "htmlnew">
     <div class="container-fluid" >
         <div class="row-fluid">
-            <div class="col-xs-4">
+            <div class="col-xs-4 box">
                 <div class="boxy">
                     <h1>Find Me Gnar</h1>
                     <p>
@@ -11,7 +11,7 @@
                     <%= render 'form' %>
                 </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4 box mid">
 
                 <div class="boxy">
 
@@ -23,15 +23,15 @@
                 </div>
 
             </div>
-            <div class="col-xs-4">
-                <div class="boxy">
-                    <marquee behavior="scroll" direction="down" scrollamount="2" height= "250px" width=100%>
+            <div class="col-xs-4 box">
+                <div class="boxy mark">
+                    <marquee behavior="scroll" direction="down" scrollamount="2" height= "600px" width=100%>
                         <p>
-                            <ul>
+                            <ul id= "mark">
                                 <% Tweet.last(100).each do |f| %>
                                     <hr>
                                     <li>
-                                    <%= f.user + ":"%> <br>
+                                    <p id="user"><%= f.user + ":"%> </p>
                                     <%= auto_link(f.content, :html => { :target => '_blank' }) %>
 
                                     </li>
@@ -46,8 +46,3 @@
 
 
 </html>
-
-
-
-
-

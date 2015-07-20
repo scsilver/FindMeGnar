@@ -27,8 +27,8 @@
 //
 // Example:
 //general
+
 .wrap{
-  background: linear-gradient(  #00A8C6 , #F9F2E7 45%, #F9F2E7 55%,#262626);
   min-height: 100vh;
   min-width: 100vw;
 }
@@ -37,9 +37,16 @@
   max-height: 500px;
      overflow: auto;
 }
+#mark
+{
+    list-style-type: none;
+    padding: 10% 10% 10% 10%;
+}
 .container-fluid {
   padding-top: 60px;
   padding-bottom: 40px;
+  background-color: #F8F8F8;
+
 
 }
 .col-xs-3 {
@@ -51,22 +58,112 @@
 }
 .boxy {
   min-height: 100%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(231, 231, 231);
+
+  padding: 10%;
+  margin: 0px;
+  background-color: #F8F8F8
+
+
+}
+.boxy.mark{
+color: #777;
+  marquee {
+    border-style: dotted;
+    border-width: 3px 0px 0px 0px;
+    border-color: #777;
+  }
+  #user {
+    color: #333;
+  }
+}
+
+.box {
+  min-height: 100%;
+  border-style: dotted;
+  border-width: 0px 0px 0px 0px;
+  border-color: #777;
   padding: 10px;
-  margin: 10px;
-  box-shadow: 2px 2px 2px 0px rgba(0,0,0,.5);
-  background-color: rgba(255,255,255,1);
+  margin: 0px;
+  background-color: #F8F8F8;
+
+}
+.box.mid {
+
+  border-width: 0px 1px 0px 1px;
+
+
 }
 .navbar {
 
   box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5), -2px -2px 2px 2px rgba(0,0,0,.5);
   min-height: 30px;
+  background-color: #333;
+}
+.navbar.navbar-new  {
+
+  a:hover {
+      background-color: #555;
+  }
+
+
+}
+.navbar.navbar-bottom  {
+  box-shadow: 0px 0px 0px 0px;
+
+  a:link {
+    color: #DDD;
+    padding: 4px;
+
+  }
+  a:hover {
+      background-color: #555;
+  }
+
+}
+.btn.btn-default.dropdown-toggle {
+
+  height: 50px;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-radius: 0;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 13px;
+    .button-variant(#777;  #F8F8F8;#DDD; );
+    a:link {
+        color: #777;
+    }
+}
+.dropdown-menu{
+  background-color:#333;
+}
+#resort {
+      color: #777;
+
+
+}
+#resort:hover{
+    color: #F8F8F8;
+
 }
 
 .ticker {
   vertical-align: center;
+  color: #777;
+}
+.btn.btn-default.ticker {
+
+  height: 50px;
+  border: 0px;
+  padding: 0px;
+
+  border-top: 0px;
+  border-radius: 0;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 13px;
+    .button-variant(#333;  #333; #DDD; );
+    a:visited {
+        color: #DDD;
+    }
 }
 
 //submits
@@ -75,8 +172,8 @@
    height: 50px;
    font-family: 'Verdana';
    border-style: solid;
-   border-color: black;
-   color: black;
+   border-color: #777;
+   color: #777;
    display: inline-block;
    background-color: rgba(255,255,255,.50);
    }
@@ -85,9 +182,9 @@
    height: 50px;
    font-family: 'Verdana';
    border-style: solid;
-   border-color: white;
+   border-color: #777;
    font-size: 175%;
-   color: white;
+   color: #777;
    width: 100%;
    display: inline-block;
   background-color: rgba(0,0,0,.50);
@@ -96,38 +193,51 @@
    box-shadow: none;
    font-family: 'Reeler';
     border-style: solid;
-    border-color: white;
+    border-color: #777;
    font-size: 200%;
-   color: black;
-   width: 50%;
+   color:#777;
+   width: 100%;
    min-height: 25px;
    display: inline-block;
    background-color: transparent;
+   padding: 5px;
+
+ }
+input:hover
+ {
+   color: #333;
+   border-color: #333;
+
  }
 .textfield {
-   width: 50%;
-   color: rgb(30,30,30);
+   width: 100%;
+   color: #777;
+}
+#title {
+
+    color: #F8F8F8;
+
 }
 .field {
-  color: black;
+  color: #777;
   font-family: 'Verdana';
     font-size: 100%;
   }
 h2 {
-  color: black;
+  color: #777;
   font-size: 140%;
   font-family:'Reeler';
    }
 
 h1 {
-  color: black;
+  color: #333;
   font-family: 'Reeler';
   font-size: 3vw;
   }
 p
 {
   font-family: 'Verdana';
-  color: #555555;
+  color: #777;
   font-size: 150;
   }
 @font-face {
@@ -135,17 +245,17 @@ p
     src: font-url('Reeler.ttf') format('truetype');
 }
 a:link {
-    color: black;
+    color: #777;
 }
 
 /* visited link */
 a:visited {
-    color: black;
+    color: #777;
 }
 
 /* mouse over link */
 a:hover {
-    color: white;
+    color: #F8F8F8;
     text-decoration: none;
     font-size: 150;
 }
