@@ -11,8 +11,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
+//= require moment
+
 //= require twitter/bootstrap
 //= require jquery.marquee
 //= require 'greensock/TweenMax'
@@ -23,5 +24,16 @@
 
 
 $(function(){
+  $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
 
+     var $target = $( event.currentTarget );
+
+     $target.closest( '.btn-group' )
+        .find( '[data-bind="label"]' ).text( $target.text() )
+           .end()
+        .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+
+     return false;
+
+  });
 });
