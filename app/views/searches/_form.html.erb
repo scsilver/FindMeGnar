@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+  <p>Click the button to get your coordinates.</p>
+
+  <button type="button" onclick="getLocation()">Find Me</button>
+
+  <p id="feedback"></p>
 
   <div class="actions">
     <div class="field">
@@ -19,3 +24,23 @@
     <%= f.submit 'Submit', :class => 'submit' %>
   </div>
 <% end %>
+<script>
+var x = document.getElementById('search_location');
+var y = document.getElementById('feedback');
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        y.innerHTML = "Searching For Your Location...";
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+
+}
+
+function showPosition(position) {
+    x.value = position.coords.latitude +
+    ", " + position.coords.longitude;
+     y.innerHTML = "Your Location Found";
+}
+
+</script>
