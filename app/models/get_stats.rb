@@ -54,9 +54,9 @@ end
       if resort['scrape_xpath_base'] != ""
         resort['base'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_base']+"/text()")).to_s.chomp(' \"').to_i
       end
-      if resort['scrape_xpath_temp'] != ""
-        resort['temp'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_temp']+"/text()")).to_s.chomp(' \"').to_i
-      end
+     # if resort['scrape_xpath_temp'] != ""
+     #  resort['temp'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_temp']+"/text()")).to_s.chomp(' \"').to_i
+    #  end
       #CSV.open("resorts_data.csv", "a+") do |csv_file|
       #    csv_file <<([resort['name'],resort['snowfall'],resort['site'],resort['xpath']])
       #end
