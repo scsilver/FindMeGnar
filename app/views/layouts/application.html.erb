@@ -6,14 +6,13 @@
   <%= javascript_include_tag "application", debug: true %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-
+  <script> Ajaxify.init() </script>
 </head>
 <body>
 
-  <d8iv class="wrap">
 
   <!-- Fixed navbar -->
-  <div class="navbar navbar-new navbar-fixed-top">
+  <div class="navbar navbar-new" style="margin-bottom: 0px" >
     <div class="container2">
       <div class="navbar-header">
 
@@ -42,7 +41,12 @@
       </div><!--/.nav-collapse -->
     </div>
   </div>
-      <%= yield %></div>
+
+
+  <div class="row">
+      <div id="main"><%= yield %></div>
+  </div>
+
 
 
                   <div class="navbar navbar-bottom navbar-fixed-bottom">
@@ -50,23 +54,27 @@
                     <div class="collapse navbar-collapse">
 
                       <div class="collapse navbar-collapse">
-                         <marquee behavior="scroll" direction="left" scrollamount="2" height="30px" width=100%>
+                         <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left" loop="INFINITE" scrollamount="4" height="30px" width=100%>
                         <ul class="nav navbar-nav">
 
 
 
 
-                        <%- Resort.all.each do |r| %>
+                        <%- Resort.all.where("snowfall >= 0").order(:snowfall).reverse.each do |r| %>
                             <%a="  " +r.symbol + ": "  %>
-                            <% if r.temp == nil  %>
-                            <%a=a + "Nil"  %>
+
+                            <% unless r.snowfall == nil  %>
+
+                            <%a=a + r.snowfall.to_s + "\""%>
                             <%else%>
-                            <%a=a + r.temp + " F  "%>
+
+
+
                             <%end%>
 
-                    <li>
-                      <%=link_to a, resort_path(r)%>
-                    </li>
+                      <li>
+                        <%=link_to a, resort_path(r)%>
+                      </li>
                         <% end%>
                       </ul>
                     </marquee>

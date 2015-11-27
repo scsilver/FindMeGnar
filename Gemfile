@@ -10,6 +10,8 @@ gem 'decent_exposure'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+gem 'mechanize'
+
 # Use SCSS for stylesheets
 # Use Uglifier as compressor for JavaScript assets
 # Use CoffeeScript for .js.coffee assets and views
@@ -42,6 +44,8 @@ gem 'httparty'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'feedjira'
+gem 'ajaxify_rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -50,4 +54,3 @@ gem 'feedjira'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

@@ -1,3 +1,5 @@
+
+
 class GetStats
 def self.weather_update_1
   @resorts = Resort.where(:id => 1..7)
@@ -32,26 +34,35 @@ def self.weather_update_3
         #r.snowfallforecast
     end
 end
-  
-  
-  
-  
-  
-  
-  def self.update_snow_stats
-    urls = "http://www.onthesnow.com/colorado/snow-rss.html"
-    feeds = Feedjira::Feed.fetch_and_parse urls
-    feeds.entries.first(22).each_with_index do |r, i|
-      name = r.title[/(.*)\s/,1]
-      resort = Resort.find_by(name: name)
-      resort.snowfall = r.summary.slice(40..42)
-      resort.base = r.summary.slice(88..91)
-      resort.save
-      end
-     # if @json != nil then
-      #  r.base = @json["data"][1]["Snow Depth (in)"]
 
-     # else
-     # end
+
+
+
+
+
+  def self.update_snow_stats
+    mechanize = Mechanize.new
+    @resorts = Resort.all
+
+    @resorts.each do |resort|
+      if resort['scrape_url'] != ""
+        page = mechanize.get(resort['scrape_url'])
+      end
+      if resort['scrape_xpath_24hr'] != ""
+        resort['snowfall'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_24hr']+"/text()")).to_s.chomp(' \"').to_i
+      end
+      if resort['scrape_xpath_base'] != ""
+        resort['base'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_base']+"/text()")).to_s.chomp(' \"').to_i
+      end
+      if resort['scrape_xpath_temp'] != ""
+        resort['temp'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_temp']+"/text()")).to_s.chomp(' \"').to_i
+      end
+      CSV.open("resorts_data.csv", "a+") do |csv_file|
+          csv_file <<([resort['name'],resort['snowfall'],resort['site'],resort['xpath']])
+      end
+      resort.save
+    end
   end
+
+
 end
