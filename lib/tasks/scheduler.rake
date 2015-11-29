@@ -50,7 +50,7 @@ task :resorts => :environment do
 end
 
 desc "Start Up"
-taks :start => :environment do
+tasks :start => :environment do
   Rake::Task["resorts"].execute
   Rake::Task["snow_update"].execute
   Rake::Task["gettwit"].execute
