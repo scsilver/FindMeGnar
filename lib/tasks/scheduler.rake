@@ -1,9 +1,3 @@
-desc "Import resorts from a JSON file"
-task :resorts => :environment do
-  json = JSON.parse(File.read('Resorts.json'))
-  json.each { |json| Resort.create(json) }
-end
-
 desc "Import tweets"
 task :gettwit => :environment do
   Tweet.destroy_all
@@ -20,9 +14,6 @@ task :gettwit => :environment do
   Tweet.create(user: tweet.user.screen_name, content: tweet.text)
   end
 end
-
-
-
 
 desc "Update Weather Batch 1 of 3"
 task :weather_update_1 => :environment do
@@ -48,4 +39,19 @@ end
 desc "Update Snow Conditions"
 task :snow_update => :environment do
   GetStats.update_snow_stats
+end
+
+desc "Import resorts from a JSON file"
+task :resorts => :environment do
+  Resort.destroy_all
+  ActiveRecord::Base.connection.reset_pk_sequence!('resorts')
+  json = JSON.parse(File.read('Resorts.json'))
+  json.each { |json| Resort.create(json) }
+end
+
+desc "Start Up"
+taks :start => :environment do
+  Rake::Task["resorts"].execute
+  Rake::Task["snow_update"].execute
+  Rake::Task["gettwit"].execute
 end
