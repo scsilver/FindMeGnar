@@ -1,37 +1,38 @@
 <%= form_for(@resort) do |f| %>
-  <% if @resort.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@resort.errors.count, "error") %> prohibited this resort from being saved:</h2>
+<% if @resort.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@resort.errors.count, "error") %>
+    prohibited this resort from being saved:</h2>
 
-      <ul>
-      <% @resort.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @resort.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :base %><br>
-    <%= f.text_field :base %>
-  </div>
-  <div class="field">
-    <%= f.label :temp %><br>
-    <%= f.text_field :temp %>
-  </div>
-  <div class="field">
-    <%= f.label :snowfall %><br>
-    <%= f.text_field :snowfall %>
-  </div>
-  <div class="field">
-    <%= f.label :gnarlocity %><br>
-    <%= f.text_field :gnarlocity %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :base %><br>
+  <%= f.text_field :base %>
+</div>
+<div class="field">
+  <%= f.label :temp %><br>
+  <%= f.text_field :temp %>
+</div>
+<div class="field">
+  <%= f.label :snowfall %><br>
+  <%= f.text_field :snowfall %>
+</div>
+<div class="field">
+  <%= f.label :gnarlocity %><br>
+  <%= f.text_field :gnarlocity %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

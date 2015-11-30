@@ -24,12 +24,10 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def self.gettwit
-	  end
-  def create
-	
-    
-    @tweet = Tweet.new
+  end
 
+  def create
+    @tweet = Tweet.new
 
     respond_to do |format|
       if @tweet.save
@@ -67,13 +65,14 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tweet_params
-      params.require(:tweet).permit(:user, :content, :time)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tweet_params
+    params.require(:tweet).permit(:user, :content, :time)
+  end
 end

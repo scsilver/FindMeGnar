@@ -1,51 +1,46 @@
-  <div class="container-fluid">
+<div class="container-fluid">
+  <div class="row boxy ">
 
-         <div class="row boxy ">
+    <h1><%= @resort.name%></h1>
 
+  </div>
 
-                  <h1><%= @resort.name%></h1>
+  <div class="row boxy">
 
-          </div>
-                            
+    <div class="col-xs-8 resort" padding="0px">
 
-                    <div class="row boxy">
+      <p class="lead">
+        <%= @resort.name + ' recieved '  + @resort.snowfall + 'inches of snowfall in the last 24 hours, and is boasting a ' + @resort.base  +  ' inch base.  Todays temperatures will be around ' + + ' degrees faregnheight. We think the resort will be '  + ' today.' %>
+      </p>
+    </div>
+    <div class="col-xs-4">
 
+      <p>
+        <strong>Name:</strong>
+        <%= @resort.name %>
+      </p>
 
-            <div class="col-xs-8 resort" padding="0px">
-                  
+      <p>
+        <strong>Base:</strong>
+        <%= @resort.base %>
+      </p>
 
-              <p class="lead"> <%= @resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %> </p>
-            </div>
-            <div class="col-xs-4">
+      <p>
+        <strong>Temp:</strong>
+        <%= @resort.temp %>
+      </p>
 
-              <p>
-                <strong>Name:</strong>
-                <%= @resort.name %>
-              </p>
+      <p>
+        <strong>Snowfall:</strong>
+        <%= @resort.snowfall %>
+      </p>
 
-              <p>
-                <strong>Base:</strong>
-                <%= @resort.base %>
-              </p>
+      <p>
+        <strong>Gnarlocity:</strong>
+        <%= @resort.gnarlocity %>
+      </p>
+    </div>
+  </div>
+  <%= render 'rides/ride' %>
 
-              <p>
-                <strong>Temp:</strong>
-                <%= @resort.temp %>
-              </p>
-
-              <p>
-                <strong>Snowfall:</strong>
-                <%= @resort.snowfall %>
-              </p>
-
-              <p>
-                <strong>Gnarlocity:</strong>
-                <%= @resort.gnarlocity %>
-              </p>
-            </div>
-          </div>
-                            <%= render 'rides/ride' %>
-
-
-      </div>
-
+</div>

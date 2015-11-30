@@ -1,47 +1,38 @@
 <div class="container-fluid">
-    <% @resorts.each do |resort| %>
+  <% @resorts.each do |resort| %>
 
-         <div class="row boxy ">
+  <div class="row boxy ">
 
+    <div class="col-xs-8 resort" padding="0px">
+      <h1><%=link_to resort.name, resort_path(resort)%></h1>
 
-     
+      <p class="lead">
+        <%= resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %>
+      </p>
+    </div>
+    <div class="col-xs-4">
 
-  
-                            
+      <p>
+        <strong>Base:</strong>
+        <%= resort.base %>
+      </p>
 
+      <p>
+        <strong>Temp:</strong>
+        <%= resort.temp %>
+      </p>
 
+      <p>
+        <strong>Snowfall:</strong>
+        <%= resort.snowfall %>
+      </p>
 
-            <div class="col-xs-8 resort" padding="0px">
-                              <h1><%=link_to resort.name, resort_path(resort)%></h1> 
+      <p>
+        <strong>Gnarlocity:</strong>
+        <%= resort.gnarlocity %>
+      </p>
+    </div>
+  </div>
 
-              <p class="lead"> <%= resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %> </p>
-            </div>
-            <div class="col-xs-4">
-
-             
-
-              <p>
-                <strong>Base:</strong>
-                <%= resort.base %>
-              </p>
-
-              <p>
-                <strong>Temp:</strong>
-                <%= resort.temp %>
-              </p>
-
-              <p>
-                <strong>Snowfall:</strong>
-                <%= resort.snowfall %>
-              </p>
-
-              <p>
-                <strong>Gnarlocity:</strong>
-                <%= resort.gnarlocity %>
-              </p>
-            </div>
-      </div>
-
-    <% end %>
-      </div>
-
+  <% end %>
+</div>
