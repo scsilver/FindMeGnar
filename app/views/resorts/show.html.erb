@@ -1,16 +1,19 @@
 <div class="container-fluid">
-  <div class="row boxy ">
+  <div class="row boxy" style="padding-top: 20px;padding-bottom: 20px">
 
-    <h1><%= @resort.name%></h1>
-
+    <h1 style="font-size: 9vw"><%=@resort.name%></h1>
   </div>
 
-  <div class="row boxy">
+  <div class="row boxy" style="padding-top: 0px;padding-bottom: 240px">
 
     <div class="col-xs-8 resort" padding="0px">
 
       <p class="lead">
-        <%= @resort.name + ' recieved '  + @resort.snowfall + 'inches of snowfall in the last 24 hours, and is boasting a ' + @resort.base  +  ' inch base.  Todays temperatures will be around ' + @resort.temp + ' degrees faregnheight. We think the resort will be '  + ' today.' %>
+        <% snowfall = @resort.snowfall.to_s %>
+        <% base = @resort.base.to_s %>
+        <% temp = @resort.temp.to_s %>
+        <% gnarlocity = @resort.gnarlocity.to_s %>
+        <%= @resort.name + ' recieved '  + snowfall + 'inches of snowfall in the last 24 hours, and is boasting a ' + base  +  ' inch base.  Todays temperatures will be around ' + temp + ' degrees faregnheight. We think the resort will be ' + gnarlocity + ' today.' %>
       </p>
     </div>
     <div class="col-xs-4">
