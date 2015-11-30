@@ -1,46 +1,46 @@
 <%= form_for(@search) do |f| %>
-  <% if @search.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@search.errors.count, "error") %> prohibited this search from being saved:    </h2>
+<% if @search.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@search.errors.count, "error") %>
+    prohibited this search from being saved:
+  </h2>
 
-      <ul>
-      <% @search.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>Click the button to get your coordinates.</p>
+  <ul>
+    <% @search.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<p>Click the button to get your coordinates.</p>
 
-  <button type="button" onclick="getLocation()">Find Me</button>
+<button onclick="getLocation()" type="button">Find Me</button>
 
-  <p id="feedback"></p>
+<p id="feedback"></p>
 
-  <div class="actions">
-    <div class="field">
-      <%= f.label :location %><br/>
-      <%= f.text_field :location, :class => 'textfield' %>
-    </div>
-    <%= f.submit 'Submit', :class => 'submit' %>
+<div class="actions">
+  <div class="field">
+    <%= f.label :location %><br/>
+    <%= f.text_field :location, :class => 'textfield' %>
   </div>
+  <%= f.submit 'Submit', :class => 'submit' %>
+</div>
 <% end %>
 <script>
-var x = document.getElementById('search_location');
-var y = document.getElementById('feedback');
-function getLocation() {
+  var x = document.getElementById('search_location');
+  var y = document.getElementById('feedback');
+  function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        y.innerHTML = "Searching For Your Location...";
+      navigator.geolocation.getCurrentPosition(showPosition);
+      y.innerHTML = "Searching For Your Location...";
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+      x.innerHTML = "Geolocation is not supported by this browser.";
     }
 
-}
+  }
 
-function showPosition(position) {
-    x.value = position.coords.latitude +
-    ", " + position.coords.longitude;
-     y.innerHTML = "Your Location Found";
-}
-
+  function showPosition(position) {
+    x.value = position.coords.latitude + ", " + position.coords.longitude;
+    y.innerHTML = "Your Location Found";
+  }
 </script>

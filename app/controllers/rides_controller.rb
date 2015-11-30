@@ -5,16 +5,15 @@ class RidesController < ApplicationController
   # GET /rides.json
   def index
     @rides = Ride.all
-  if params[:resort_to]  
-    @rides = @rides.where(:resort_to =>(params[:resort_to])) 
-end
-   
+    @rides = @rides.where(resort_to: (params[:resort_to])) if params[:resort_to]
   end
+
   def query
     @rides = Ride.where(resort_to: params[:my_param])
-    redirect_to "/views/rides/query"
+    redirect_to '/views/rides/query'
     binding.pry
   end
+
   # GET /rides/1
   # GET /rides/1.json
   def show
@@ -70,13 +69,14 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ride
-      @ride = Ride.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ride_params
-      params.require(:ride).permit(:resort_to, :location_from, :time_start, :time_end, :spots, :contact_info)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ride
+    @ride = Ride.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def ride_params
+    params.require(:ride).permit(:resort_to, :location_from, :time_start, :time_end, :spots, :contact_info)
+  end
 end

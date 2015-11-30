@@ -1,3 +1,3 @@
 class Tweet < ActiveRecord::Base
-    validates :content, uniqueness: true
+  validates :content, uniqueness: true
 end

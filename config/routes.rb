@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :resorts
 
-  root to: "searches#new"
+  root to: 'searches#new'
   match 'rides/query' => 'rides#query', :as => :rides_query, via: [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.

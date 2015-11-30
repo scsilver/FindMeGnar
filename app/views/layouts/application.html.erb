@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>FindMeNot</title>
   <%= stylesheet_link_tag "application", debug: true %>
-  <%= javascript_include_tag "application", debug: true %>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-  <script> Ajaxify.init() </script>
+    <%= javascript_include_tag "application", debug: true %>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+      <script>
+        Ajaxify.init()
+      </script>
 </head>
 <body>
-
-
   <!-- Fixed navbar -->
-  <div class="navbar navbar-new" style="margin-bottom: 0px" >
+  <div class="navbar navbar-new" style="margin-bottom: 0px">
     <div class="container2">
       <div class="navbar-header">
 
@@ -21,72 +22,59 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
-          <div class="btn-group">
+            <div class="btn-group">
 
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                   <span data-bind="label">Resorts</span>&nbsp;<span class="caret"></span>
-                 </button>
-                 <ul class="dropdown-menu" role="menu">
-                   <%- Resort.all.reverse.each do |r| %>
-                             <li><a href="/resorts/<%=r.id%>" id="resort"><%=r.name %></a></li>
-                   <% end%>
-                 </ul>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span data-bind="label">Resorts</span>&nbsp;
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <%- Resort.all.reverse.each do |r| %>
+                  <li>
+                    <a href="/resorts/<%=r.id%>" id="resort">
+                      <%=r.name %>
+                    </a>
+                  </li>
+                  <% end%>
+              </ul>
 
-          </div>
-        </li>
-        <li><%= link_to 'Rides', rides_path %> </li>
-
-
-          </ul>
-      </div><!--/.nav-collapse -->
+            </div>
+          </li>
+          <li>
+            <%= link_to 'Rides', rides_path %>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
     </div>
   </div>
-
-
   <div class="row">
-      <div id="main"><%= yield %></div>
+    <div id="main">
+      <%= yield %>
+    </div>
   </div>
-
-
-
-                  <div class="navbar navbar-bottom navbar-fixed-bottom">
-                    <div class="container2">
-                    <div class="collapse navbar-collapse">
-
-                      <div class="collapse navbar-collapse">
-                         <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left" loop="INFINITE" scrollamount="4" height="30px" width=100%>
-                        <ul class="nav navbar-nav">
-
-
-
-
-                        <%- Resort.all.where("snowfall >= 0").order(:snowfall).reverse.each do |r| %>
-                            <%a="  " +r.symbol + ": "  %>
-
-                            <% unless r.snowfall == nil  %>
-
-                            <%a=a + r.snowfall.to_s + "\""%>
-                            <%else%>
-
-
-
-                            <%end%>
-
-                      <li>
-                        <%=link_to a, resort_path(r)%>
-                      </li>
-                        <% end%>
-                      </ul>
-                    </marquee>
-                    </div>
-
-              </div>
-              </div>
-              </div>
-
-
-
-
-                </body>
+  <div class="navbar navbar-bottom navbar-fixed-bottom">
+    <div class="container2">
+      <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse">
+          <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left" loop="INFINITE" scrollamount="4" height="30px" width=100%>
+            <ul class="nav navbar-nav">
+              <%- Resort.all.where("snowfall >= 0").order(:snowfall).reverse.each do |r| %>
+                <%a="  " +r.symbol + ": "  %>
+                  <% unless r.snowfall == nil  %>
+                    <%a=a + r.snowfall.to_s + "\""%>
+                      <%else%>
+                        <%end%>
+                          <li>
+                            <%=link_to a, resort_path(r)%>
+                          </li>
+                          <% end%>
+            </ul>
+          </marquee>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
 </html>

@@ -62,13 +62,14 @@ class ResortsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resort
-      @resort = Resort.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def resort_params
-      params.require(:resort).permit(:name, :base, :temp, :snowfall, :gnarlocity)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_resort
+    @resort = Resort.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def resort_params
+    params.require(:resort).permit(:name, :base, :temp, :snowfall, :gnarlocity)
+  end
 end

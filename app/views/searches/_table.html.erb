@@ -1,5 +1,4 @@
-
-<table class= "table">
+<table class="table">
   <thead>
     <th>Name</th>
     <th>Distance</th>
@@ -11,24 +10,29 @@
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
-      <tr>
-        <td><%= resort.name %></td>
-        <td><%= resort.distance_text %></td>
-        <td><%= resort.temp  %> F&deg;</td>
-        <td><%= resort.base  %> in</td>
-        <td><%= resort.snowfall  %> in</td>
-        <td><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td>
+    <tr>
+      <td><%= resort.name %></td>
+      <td><%= resort.distance_text %></td>
+      <td><%= resort.temp  %>
+        F&deg;</td>
+      <td><%= resort.base  %>
+        in</td>
+      <td><%= resort.snowfall  %>
+        in</td>
+      <td><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td>
 
-        <td><%- resort.webcam.split(",").each_with_index do |webc, i| %>
-          <a href="<%= webc %>" data-featherlight="image">Camera: <%=i+1%></a>
-           <br>
-            <%- end %>
-          </td></tf>
-      </tr>
+      <td><%- resort.webcam.split(",").each_with_index do |webc, i| %>
+        <a data-featherlight="image" href="<%= webc %>">Camera:
+          <%=i+1%></a>
+        <br>
+        <%- end %>
+      </td>
+    </tf>
+  </tr>
 
-    <%- end %>
-    </tbody>
+  <%- end %>
+</tbody>
 <script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="//cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script charset="utf-8" src="//cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" type="text/javascript"></script>
 
 </table>

@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-<html xml:lang="en" lang="en" class = "htmlnew">
-    <div class="container-fluid" style="padding: 0px; min-height:650px">
-        <div class="row-fluid">
-            <div class="col-xs-4 box">
-                <div class="boxy">
-                    <h1>Find Me Gnar</h1>
-                    <p>
-                        Enter your location to find the best snow around
-                    </p>
-                    <%= render 'form' %>
-                </div>
-            </div>
-            <div class="col-xs-4 box mid">
-
-                <div class="boxy">
-
-                    <h1>Ride Share</h1>
-                        <p>
-                            Enter your location and destination to look for a ride
-                        </p>
-                    <%= render 'rides/form' %>
-                </div>
-
-            </div>
-            <div class="col-xs-4 box">
-                <div class="boxy mark">
-                    <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height= "500px" width=100%>
-                        <p>
-                            <ul id= "mark">
-                                <% Tweet.last(100).each do |f| %>
-                                    <hr>
-                                    <li>
-                                    <p id="user"><%= f.user + ":"%> </p>
-                                    <%= auto_link(f.content, :html => { :target => '_blank' }) %>
-
-                                    </li>
-                                <% end %>
-                            </ul>
-                        </p>
-                    </marquee>
-                </div>
-            </div>
-        </div>
+<html xml:lang="en" lang="en" class="htmlnew">
+<div class="container-fluid" style="padding: 0px; min-height:650px">
+  <div class="row-fluid">
+    <div class="col-xs-4 box">
+      <div class="boxy">
+        <h1>Find Me Gnar</h1>
+        <p>
+          Enter your location to find the best snow around
+        </p>
+        <%= render 'form' %>
+      </div>
     </div>
+    <div class="col-xs-4 box mid">
+
+      <div class="boxy">
+
+        <h1>Ride Share</h1>
+        <p>
+          Enter your location and destination to look for a ride
+        </p>
+        <%= render 'rides/form' %>
+      </div>
+
+    </div>
+    <div class="col-xs-4 box">
+      <div class="boxy mark">
+        <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height="500px" width=100%>
+          <p>
+            <ul id="mark">
+              <% Tweet.last(100).each do |f| %>
+                <hr>
+                <li>
+                  <p id="user">
+                    <%= f.user + ":"%>
+                  </p>
+                  <%= auto_link(f.content, :html => { :target => '_blank' }) %>
+
+                </li>
+                <% end %>
+            </ul>
+          </p>
+        </marquee>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </html>

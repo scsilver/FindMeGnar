@@ -9,11 +9,11 @@
 
   <tbody>
     <% @searches.each do |search| %>
-      <tr>
-        <td><%= link_to 'Show', search %></td>
-        <td><%= link_to 'Edit', edit_search_path(search) %></td>
-        <td><%= link_to 'Destroy', search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= link_to 'Show', search %></td>
+      <td><%= link_to 'Edit', edit_search_path(search) %></td>
+      <td><%= link_to 'Destroy', search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
