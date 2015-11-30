@@ -13,15 +13,16 @@
   </div>
   <% end %>
 
-  <div class="actions">
+  <div class="actions" style="padding: 20px;margin-bottom: 40px">
     <div class="col-xs-6">
-      <%= f.text_field :location, :class => 'submitfield' %>
+      <%= f.text_field :location, :class => 'submitfield', :style => 'min-width: 100%; max-height: 32px' %>
 
     </div>
+    <div class="col-xs-6">
+      <%= f.submit 'Submit', :class => 'submit'%>
+    </div>
   </div>
-  <div class="col-xs-6">
-    <%= f.submit 'Submit', :class => 'submit'%>
-  </div>
+
 </div>
 
 </div>
