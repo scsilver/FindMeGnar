@@ -23,6 +23,7 @@ gem 'therubyracer'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'less-rails'
 gem 'rails_12factor', group: :production
+  gem 'ajaxify_rails'
 
   gem 'uglifier'
   gem 'twitter-bootstrap-rails'
