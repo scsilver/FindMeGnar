@@ -17,9 +17,9 @@
 //= require jquery.marquee
 //= require 'greensock/TweenMax'
 //= require moment
-//= require work
 //= require turbolinks
 //= require ajaxify_rails
+
 //= require_self
 //= require_tree .
 
