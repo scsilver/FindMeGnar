@@ -2,59 +2,31 @@
 <html>
 
 <head>
-  <title>FindMeNot</title>
-  <%= stylesheet_link_tag "application", debug: true %>
+  <title>FindMeGnar</title>
+    <%= stylesheet_link_tag "application", debug: true %>
     <%= javascript_include_tag "application", debug: true %>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-      <script>
-        Ajaxify.init()
-      </script>
+    <script>
+      Ajaxify.init()
+    </script>
 </head>
 <body>
   <!-- Fixed navbar -->
-  <div class="navbar navbar-new" style="margin-bottom: 0px">
-    <div class="container2">
+  <ul class="navigation">
+	<li class="nav-item"><a href="/">FindMeGnar</a></li>
+	<li class="nav-item"><a href="/resorts">Resorts</a></li>
+	<li class="nav-item"><a href="/rides">Rides</a></li>
+	<li class="nav-item"><a href="/about">About</a></li>
+	<li class="nav-item"><a href="#">Contact</a></li>
+  </ul>
 
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li>
-            <div class="btn-group">
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <span data-bind="label">Resorts</span>&nbsp;
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <%- Resort.all.reverse.each do |r| %>
-                  <li>
-                    <a href="/resorts/<%=r.id%>" id="resort">
-                      <%=r.name %>
-                    </a>
-                  </li>
-                  <% end%>
-              </ul>
+  <label for="nav-trigger"></label>
 
-            </div>
-          </li>
-          <li>
-            <%= link_to 'Rides', rides_path %>
-          </li>
-        </ul>
-      </div>
 
-      <!--/.nav-collapse -->
-    </div>
-    <div class="navbar-header">
-
-      <a class="navbar-brand" id="title" href="/">Find Me Gnar</a>
-    </div>
-  </div>
-  <div class="row">
-    <div id="main">
+    <div class="site-wrap" id="main">
       <%= yield %>
     </div>
-  </div>
   <div class="navbar navbar-bottom navbar-fixed-bottom">
     <div class="container2">
       <div class="collapse navbar-collapse">
