@@ -37,13 +37,13 @@
 
   /* non-critical appearance styles */
   list-style: none;
-  background: #111;
+  background: #333;
 }
 
 /* Navigation Menu - List items */
 .nav-item {
   /* non-critical appearance styles */
-  width: 200px;
+  width: 150px;
   border-top: 1px solid #111;
   border-bottom: 1px solid #000;
 }
@@ -52,14 +52,14 @@
   /* non-critical appearance styles */
   display: block;
   padding: 1em;
-  color: white;
+  color: #F8F8F8;
   font-size: 1.2em;
   text-decoration: none;
   transition: color 2s, background 0.5s;
 }
 
 .nav-item a:hover {
-  color: #c74438;
+  color: #F8F8F8;
 }
 
 /* Site Wrapper - Everything that isn't navigation */
@@ -75,7 +75,7 @@
   z-index: 1;
 
   /* non-critical apperance styles */
-  padding: 4em;
+  padding: 2em;
   background-size: 200%;
 }
 
@@ -119,11 +119,11 @@ label[for="nav-trigger"]:hover {
 }
 
 .nav-trigger:checked + label {
-  left: 215px;
+  left: 165px;
 }
 
 .nav-trigger:checked ~ .site-wrap {
-  left: 200px;
+  left: 150px;
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 }
 
