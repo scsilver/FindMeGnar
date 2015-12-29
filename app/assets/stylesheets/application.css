@@ -73,9 +73,8 @@
   bottom: 100%;
   left: 0;
   z-index: 1;
-
   /* non-critical apperance styles */
-  padding: 2em;
+  padding: 4em;
   background-size: 200%;
 }
 
@@ -134,10 +133,6 @@ body {
 
 /* Additional non-critical styles */
 
-h1, h3, p {
-  max-width: 600px;
-  margin: 0 auto 1em;
-}
 
 code {
 	padding: 2px;
