@@ -6,6 +6,9 @@ class ResortsController < ApplicationController
   def index
     @resorts = Resort.all
   end
+  def about
+    render template: "resorts/about"
+  end
 
   # GET /resorts/1
   # GET /resorts/1.json

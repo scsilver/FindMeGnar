@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   root to: 'searches#new'
   match 'rides/query' => 'rides#query', :as => :rides_query, via: [:get, :post]
+  get "/about" => "resorts#about"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

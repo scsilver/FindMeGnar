@@ -31,6 +31,7 @@
 .wrap{
   min-height: 100vh;
   min-width: 100vw;
+  overflow-y:auto
 }
 .dropdown-menu
 {
@@ -78,16 +79,7 @@ color: #777;
   }
 }
 
-.box {
-  min-height: 100%;
-  border-style: dotted;
-  border-width: 0px 0px 0px 0px;
-  border-color: #777;
-  padding: 10px;
-  margin: 0px;
-  background-color: #F8F8F8;
 
-}
 .box.mid {
 
   border-width: 0px 1px 0px 1px;
@@ -97,7 +89,8 @@ color: #777;
 .navbar {
 
   box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5), -2px -2px 2px 2px rgba(0,0,0,.5);
-  min-height: 30px;
+  min-height: 35px;
+  z-index: 0;
   background-color: #333;
 }
 .navbar.navbar-new  {
@@ -108,6 +101,8 @@ color: #777;
 
 
 }
+
+
 .navbar.navbar-bottom  {
   box-shadow: 0px 0px 0px 0px;
 
@@ -163,7 +158,8 @@ color: #777;
   font-size: 13px;
     .button-variant(#333;  #333; #DDD; );
     a:visited {
-        color: #DDD;
+        color: #333;
+
     }
 }
 
@@ -233,7 +229,7 @@ h2 {
 h1 {
   color: #333;
   font-family: 'Reeler';
-  font-size: 100%;
+  font-size: 3 vw;
   }
 p
 {
@@ -246,12 +242,12 @@ p
     src: font-url('Reeler.ttf') format('truetype');
 }
 a:link {
-    color: #777;
+    color: #333;
 }
 
 /* visited link */
 a:visited {
-    color: #777;
+    color: #333;
 }
 
 /* mouse over link */
@@ -264,4 +260,6 @@ a:hover {
 /* selected link */
 a:active {
     color: black;
+    background-color:#333;
+
 }

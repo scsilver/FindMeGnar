@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'right_http_connection', git: 'git://github.com/rightscale/right_http_connection.git', ref: '3359524d81'
 gem 'jquery-turbolinks'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'greensock-rails'
 gem 'rails_autolink'
@@ -11,6 +12,7 @@ gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'mechanize'
+
 
 # Use SCSS for stylesheets
 # Use Uglifier as compressor for JavaScript assets

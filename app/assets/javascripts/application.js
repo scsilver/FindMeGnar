@@ -30,13 +30,46 @@ $(function(){
   $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
 
     var $target = $( event.currentTarget );
-
     $target.closest( '.btn-group' )
        .find( '[data-bind="label"]' ).text( $target.text() )
           .end()
        .children( '.dropdown-toggle' ).dropdown( 'toggle' );
 
+
+
     return false;
 
  });
+});
+$(":checked").change(function(){
+  debugger;
+  if($(this).is(':checked')){
+    var w = $(window).width();
+
+    $(".site-wrap").width(w-150);
+
+} else {
+  var w = $(window).width();
+
+  $(".site-wrap").width(w);
+}
+
+
+});
+
+$(window).ready(function(){
+   var h = $(window).height();
+
+   $(".site-wrap").height(h-66);
+
+
+  // jQuery methods go here...
+
+});
+$(window).resize(function(){
+   var h = $(window).height();
+   $(".site-wrap").height(h-66);
+
+  // jQuery methods go here...
+
 });

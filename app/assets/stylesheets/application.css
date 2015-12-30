@@ -50,32 +50,35 @@
 
 .nav-item a {
   /* non-critical appearance styles */
+  z-index: 0;
   display: block;
   padding: 1em;
-  color: #F8F8F8;
+  color: #DDD;
   font-size: 1.2em;
   text-decoration: none;
-  transition: color 2s, background 0.5s;
+  transition: color 0.5s, background 2s;
 }
 
 .nav-item a:hover {
-  color: #F8F8F8;
+  color: #333;
+  background-color: #DDD;
 }
 
 /* Site Wrapper - Everything that isn't navigation */
 .site-wrap {
   /* Critical position and size styles */
-  min-height: 100%;
-  min-width: 100%;
   background-color: #F8F8F8;; /* Needs a background or else the nav will show through */
   position: relative;
   top: 0;
   bottom: 100%;
   left: 0;
   z-index: 1;
+  overflow-y: auto;
   /* non-critical apperance styles */
-  padding: 4em;
+  padding: 1em 6em 1em 6em;
   background-size: 200%;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+
 }
 
 /* Nav Trigger */
@@ -141,4 +144,4 @@ code {
 
 /* Micro reset */
 *,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
-html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
+html, body { height: 100%;  font-family: Helvetica, Arial, sans-serif; }
