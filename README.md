@@ -7,11 +7,14 @@
 
 
 ##Data Sources
+
 ###Real Time Crowd Sourced data
 - Resort Relevant tweets (Twitter Api)
+
 ###Continuously updating data
 - Road conditions for directions to resort (CDOT)
 - Road cams for roads listed in directions to resort (CDOT)
+
 ###Daily Data
 - Resorts Snowfall and Base stats (From each resorts site)
 - Resorts temperature stats (Wunderground Api)
