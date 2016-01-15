@@ -50,7 +50,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     commonjs (0.2.7)
-    curb (0.8.6)
+    curb (0.9.1)
     decent_exposure (2.3.2)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
@@ -230,7 +230,7 @@ DEPENDENCIES
   feedjira
   greensock-rails
   httparty
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails (~> 5.0, >= 5.0.5)
@@ -254,4 +254,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.10.5
+   1.11.2

@@ -12,9 +12,9 @@
 <body>
   <!-- Fixed navbar -->
   <ul class="navigation">
-	<li class="nav-item"><a href="/">FindMeGnar</a></li>
-	<li class="nav-item"><a href="/resorts">Resorts</a></li>
-	<li class="nav-item"><a href="/about">About</a></li>
+	<li id="drawer" class="nav-item"><a href="/">FindMeGnar</a></li>
+	<li id="drawer" class="nav-item"><a href="/resorts">Resorts</a></li>
+	<li id="drawer" class="nav-item"><a href="/about">About</a></li>
   </ul>
 
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -29,7 +29,7 @@
     <div class="container2">
       <div class="collapse navbar-collapse">
         <div class="collapse navbar-collapse">
-          <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left" loop="INFINITE" scrollamount="4" height="30px" width=100%>
+          <marquee class="ticker" onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left" loop="INFINITE" scrollamount="4" height="30px" width=100%>
             <ul class="nav navbar-nav">
               <%- Resort.all.where("snowfall >= 0").order(:snowfall).reverse.each do |r| %>
                 <%a="  " +r.symbol + ": "  %>
@@ -37,8 +37,8 @@
                     <%a=a + r.snowfall.to_s + "\""%>
                       <%else%>
                         <%end%>
-                          <li>
-                            <%=link_to a, resort_path(r)%>
+                          <li class="ticker">
+                            <%=link_to a, resort_path(r),  class: "ticker"%>
                           </li>
                           <% end%>
             </ul>

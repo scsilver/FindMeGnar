@@ -1,22 +1,22 @@
-<h1 style="font-size: 8vw">Colorado Resorts</h1>
-<hr>
+<div class="boxy">
+<h1 style="font-size: 7vw">Colorado Resorts</h1>
 <hr>
 
   <% @resorts.reverse.each do |resort| %>
   <div class="row">
     <div class="col-xs-12">
 
-    <h1 style="font-size: 6vw"><%=link_to resort.name, resort_path(resort)%></h1>
+    <h1 style="font-size: 6vw"><%=link_to resort.name, resort_path(resort), class: "resort_link"%></h1>
   </div>
 
-      <div class="col-xs-8">
+      <div class="col-xs-10">
 
 
       <p class="lead">
-        <%= resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight. We think the resort will be '  + ' today.' %>
+        <%= resort.name + ' recieved '  + 'inches of snowfall, adding to its '  + ' inch base.  Todays temperatures will be around ' + ' degrees faregnheight.' %>
       </p>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-2">
 
       <p>
         <strong>Base:</strong>
@@ -33,12 +33,13 @@
         <%= resort.snowfall %>
       </p>
 
-      <p>
+      <!-- <p>
         <strong>Gnarlocity:</strong>
         <%= resort.gnarlocity %>
-      </p>
+      </p> -->
     </div>
 </div>
 <hr>
 
   <% end %>
+</dov>

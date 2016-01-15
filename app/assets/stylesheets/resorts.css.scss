@@ -7,3 +7,16 @@ h1 {
   font-family: 'Reeler';
   font-size: 3 vw;
   }
+  .resort_link {
+    /* non-critical appearance styles */
+    z-index: 0;
+    display: block;
+    color: #DDD;
+    font-size: 1em;
+    text-decoration: none;
+    transition: color 0.5s;
+  }
+
+  .resort_link:hover {
+    color: #618f6d;
+  }

@@ -20,8 +20,8 @@
 
  /* Navigation Menu - Background */
  @keyframes example {
-    0%   { left:-45px; top:15px;}
-    100%  { left:15; top:15px;}
+    0%   { left:-60px; top:25px;}
+    100%  { left:60; top:25px;}
 
 }
 .navigation {
@@ -59,9 +59,54 @@
   transition: color 0.5s, background 2s;
 }
 
-.nav-item a:hover {
+.nav-item  a:hover {
   color: #333;
-  background-color: #DDD;
+  background-color: #F8F8F8 !important;
+}
+.ticker {
+  background-color: #333 !important;
+  color: #90A860 !important;
+
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.ticker:hover {
+  color: #F8F8F8 !important;
+
+  background-color: #333 !important;
+
+}
+a {
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+a:hover {
+  color: #90A860 !important;
+
+
+}
+#drawer {
+  background-color: #333 !important;
+
+  transition: background 0.5s;
+
+}
+#drawer:hover {
+  background-color: #F8F8F8 !important;
+
+}
+.resort_link {
+  color: #333 !important;
+
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.resort_link:hover {
+  color: #90A860 !important;
+
 }
 
 /* Site Wrapper - Everything that isn't navigation */
@@ -75,7 +120,8 @@
   z-index: 1;
   overflow-y: auto;
   /* non-critical apperance styles */
-  padding: 1em 6em 1em 6em;
+  padding: 1em 1em 1em 6em;
+  padding-left: 120px !important;
   background-size: 200%;
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 
@@ -92,14 +138,14 @@
 label[for="nav-trigger"] {
   /* critical positioning styles */
   position: fixed;
-  left: 15px; top: 15px;
+  left: 60px; top: 25px;
   z-index: 2;
 
   /* non-critical apperance styles */
   height: 45px;
   width: 45px;
   cursor: pointer;
-  background-image: url(logo.png);
+  background-image: url(logo.svg);
   background-size: contain;
 
   background-position: center;
@@ -108,10 +154,17 @@ label[for="nav-trigger"] {
   animation-name: example;
   animation-duration: 2s;
 
+  color: ##F8F8F8 !important;
+  transition: color 0.5s;
+
+  transform: scale(3);
+
 
 }
 label[for="nav-trigger"]:hover {
   /* critical styles - hide the checkbox input */
+  color: #618f6d !important;
+
 }
 
 
@@ -121,7 +174,7 @@ label[for="nav-trigger"]:hover {
 }
 
 .nav-trigger:checked + label {
-  left: 165px;
+  left: 210px;
 }
 
 .nav-trigger:checked ~ .site-wrap {

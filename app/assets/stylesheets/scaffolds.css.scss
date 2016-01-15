@@ -1,6 +1,5 @@
 body {
-  background-color: #222;
-  color: #333;
+
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -18,17 +17,7 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #ddd;
-  &:visited {
-    color: #ddd;
-    background-color: #000;
-  }
-  &:hover {
-    color: #333;
-    background-color: #000;
-  }
-}
+
 
 div {
   &.field, &.actions {
