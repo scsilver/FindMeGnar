@@ -13,6 +13,7 @@ class ResortsController < ApplicationController
   # GET /resorts/1
   # GET /resorts/1.json
   def show
+    @tweets = Tweet.all
   end
 
   # GET /resorts/new
