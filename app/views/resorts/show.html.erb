@@ -7,17 +7,7 @@
   <body>
     <!-- Resort Instagrams -->
     <div style="heght="class="container-fluid">
-      <div class="row">
 
-        <div class="col-xs-12">
-
-          <div class="container-fluid">
-
-            <div id="resort_instagrams"></div>
-
-          </div>
-        </div>
-      </div>
 
     <!-- Resort Info -->
       <div class="row">
@@ -33,13 +23,13 @@
             </div>
 
             <div class="col-xs-2">
-              <p style="font-size: 1.5em;">
-              <%= @resort.temp.to_s + " °F"%>
+              <p style="font-size: 1.5em; line-height: 2em;">
+              <%= "Temp: " + @resort.temp.to_s + " °F"%>
               <br>
-              <%= @resort.base.to_s + " In" %>
+              <%= "Base: " + @resort.base.to_s + " In" %>
               <br>
 
-              <%= @resort.snowfall.to_s + " In" %>
+              <%= "24HR: " + @resort.snowfall.to_s + " In" %>
               </p>
             </div>
 
@@ -75,7 +65,17 @@
         </div>
 
       </div>
+      <div class="row" style="padding-top: 20px;">
 
+        <div class="col-xs-12">
+
+          <div class="container-fluid">
+
+            <div id="resort_instagrams"></div>
+
+          </div>
+        </div>
+      </div>
 
 
 
