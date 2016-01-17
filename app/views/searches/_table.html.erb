@@ -1,4 +1,4 @@
-<table class="table" style="padding-left: 10%; padding-right: 10%;"">
+<table class="table" style="padding-left: 10%; padding-right: 10%;">
   <thead>
     <th>Name</th>
     <th>Distance</th>
@@ -11,7 +11,7 @@
   <tbody>
     <%- @resorts.each do |resort| %>
     <tr>
-      <td><%= resort.name %></td>
+      <td><%= link_to resort.name, resort_path(resort.id) %></td>
       <td><%= resort.distance_text %></td>
       <td><%= resort.temp  %>
         F&deg;</td>
