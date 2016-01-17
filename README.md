@@ -10,6 +10,8 @@
 
 ###Real Time Crowd Sourced data
 - Resort Relevant tweets (Twitter Api)
+- Instagram feed
+
 
 ###Continuously updating data
 - Road conditions for directions to resort (CDOT)
