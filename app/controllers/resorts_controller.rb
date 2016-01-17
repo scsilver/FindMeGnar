@@ -14,6 +14,7 @@ class ResortsController < ApplicationController
   # GET /resorts/1.json
   def show
     @tweets = Tweet.all
+    @location = params[:location]
   end
 
   # GET /resorts/new

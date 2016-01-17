@@ -152,7 +152,7 @@
         var start_point;
         var end_point;
         directionsService.route({
-          origin: 'Denver, Co',
+          origin: '<%=@location%>',
           destination: '<%=@resort.address%>',
           travelMode: google.maps.TravelMode.DRIVING
         }, function(response, status) {

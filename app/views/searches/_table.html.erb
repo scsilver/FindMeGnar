@@ -11,7 +11,7 @@
   <tbody>
     <%- @resorts.each do |resort| %>
     <tr>
-      <td><%= link_to resort.name, resort_path(resort.id) %></td>
+      <td><%= link_to resort.name, resort_path(resort.id, :location => @location) %></td>
       <td><%= resort.distance_text %></td>
       <td><%= resort.temp  %>
         F&deg;</td>

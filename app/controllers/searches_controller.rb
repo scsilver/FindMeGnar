@@ -11,6 +11,7 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(params[:search])
+    @location = @search.location
     @resorts = @search.resorts
     render action: 'show'
   end
