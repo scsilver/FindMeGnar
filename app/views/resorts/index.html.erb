@@ -18,19 +18,14 @@
     </div>
     <div class="col-xs-2">
 
-      <p>
-        <strong>Base:</strong>
-        <%= resort.base %>
-      </p>
+      <p style="font-size: 1.5em; line-height: 2em;">
+      <%= "Temp: " + resort.temp.to_s + " °F"%>
+      <br>
+      <%= "24HR: " + resort.snowfall.to_s + " In" %>
 
-      <p>
-        <strong>Temp:</strong>
-        <%= resort.temp %>
-      </p>
+      <br>
 
-      <p>
-        <strong>Snowfall:</strong>
-        <%= resort.snowfall %>
+      <%= "Base: " + resort.base.to_s + " In" %>
       </p>
 
       <!-- <p>
