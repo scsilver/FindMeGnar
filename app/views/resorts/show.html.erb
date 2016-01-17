@@ -151,8 +151,14 @@
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         var start_point;
         var end_point;
+        var from_area;
+        if ('<%=@location%>' == ""){
+          from_area = "Denver, CO";
+        } else {
+          from_area = '<%=@location%>';
+        }
         directionsService.route({
-          origin: '<%=@location%>',
+          origin: from_area,
           destination: '<%=@resort.address%>',
           travelMode: google.maps.TravelMode.DRIVING
         }, function(response, status) {
