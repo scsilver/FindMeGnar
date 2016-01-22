@@ -55,10 +55,23 @@
           </div>
       <!-- Resort Tweets -->
           <div class="col-xs-2">
-            <div class="resort_tweets">
-              <% @tweets.each do |tweet| %>
-                <%= tweet.content %>
-                <% end %>
+            <div class="boxy mark">
+              <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height="500px" width=100%>
+                <p>
+                  <ul id="mark">
+                    <% Tweet.last(100).each do |f| %>
+                      <hr>
+                      <li>
+                        <p id="user">
+                          <%= f.user + ":"%>
+                        </p>
+                        <%= auto_link(f.content, :html => { :target => '_blank' }) %>
+
+                      </li>
+                      <% end %>
+                  </ul>
+                </p>
+              </marquee>
             </div>
           </div>
         </div>
