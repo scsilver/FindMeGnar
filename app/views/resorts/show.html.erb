@@ -8,11 +8,11 @@
 
   <body>
     <!-- Resort Instagrams -->
-    <div style="width: 90%;margin: auto;"class="container-fluid boxy">
+    <div style="width: 80%;margin: auto;padding-bottom: 10px;"class="container-fluid boxy">
       <div style="border-width: 0px 0px 3px 0px;"class="row dot">
-        <div class="col-xs-12">
+        <div class="col-xs-12 dot">
     <!-- Resort Info -->
-              <h1 style="text-align: center;" id="resort_name"><%= @resort.name %></h1>
+              <h1 style="text-align: center;" class="resort_name"><%= @resort.name %></h1>
         </div>
       </div>
       <div style="border-width: 0px 0px 3px 0px;"class="row dot">
@@ -37,9 +37,38 @@
 
 
 
+        <!-- Resort Tweets -->
+        <div class="row">
+            <div class="col-xs-12">
+              <div style="padding: 15px; margin: 0px; border-width: 0px 0px 3px 0px;"class="container-fluid dot">
 
+                <div id="resort_instagrams"></div>
+
+              </div>
+
+            </div>
+          </div>
+
+        <div class="dot" style="padding:0px;height: 200px; overflow-y:hidden;border-width: 0px 0px 0px 0px;">
+          <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height="500px" width=100%>
+            <p>
+              <ul id="mark">
+                <% Tweet.last(100).each do |f| %>
+                  <hr>
+                  <li>
+                    <p id="user">
+                      <%= f.user + ":"%>
+                    </p>
+                    <%= auto_link(f.content, :html => { :target => '_blank' }) %>
+
+                  </li>
+                  <% end %>
+              </ul>
+            </p>
+          </marquee>
+        </div>
       <!-- Google Map to Resort -->
-      <div class="row">
+      <div class="row dot" style="border-width: 3px 0px 3px 0px;">
 
 
           <div style="padding: 0px;" class="col-xs-6">
@@ -52,46 +81,15 @@
             <div id="right-panel"></div>
 
           </div>
-      <!-- Resort Tweets -->
-      <div class="row">
-          <div class="col-xs-12">
-            <div style="padding: 15px; margin: 0px; border-width: 3px 0px 3px 0px;"class="container-fluid dot">
-
-              <div id="resort_instagrams"></div>
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="dot" style="padding:0px;height: 200px; overflow-y:hidden;border-width: 0px 0px 3px 0px;">
-        <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height="500px" width=100%>
-          <p>
-            <ul id="mark">
-              <% Tweet.last(100).each do |f| %>
-                <hr>
-                <li>
-                  <p id="user">
-                    <%= f.user + ":"%>
-                  </p>
-                  <%= auto_link(f.content, :html => { :target => '_blank' }) %>
-
-                </li>
-                <% end %>
-            </ul>
-          </p>
-        </marquee>
       </div>
 
 
 
-    </div>
 
-
+      <br>
+      <p style="color: #777;text-align: center;">Scott Silverstein © 2016<p>
+      </div>
   </body>
-</div>
-
 <script>
 
   // <!-- Resort Instagram Script -->
@@ -238,7 +236,7 @@
           };
 
         }( jQuery ));
-        $("#resort_name").fitText(0.9);
+        $(".resort_name").fitText(0.9);
         $(".resort_stats").fitText(0.5);
 
 

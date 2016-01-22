@@ -1,22 +1,24 @@
-<div style="width: 90%;margin: auto;"class="container-fluid boxy">
-<h1 style="font-size: 7vw">Colorado Resorts</h1>
-<hr>
-
-  <% @resorts.reverse.each do |resort| %>
+<div style="width: 80%;margin: auto;"class="container-fluid boxy">
   <div class="row">
+    <div class="col-xs-12 dot">
+  <h1 style="text-align: center;" class="resort_name">Resorts</h1>
+    </div>
+
+  </div>
+  <% @resorts.reverse.each do |resort| %>
+  <div style="border-width: 3px 0px 0px 0px;"class="row dot">
     <div class="col-xs-12">
 
-    <h1 style="font-size: 6vw"><%=link_to resort.name, resort_path(resort), class: "resort_link"%></h1>
-  </div>
+    <h1 class="resort_name"><%=link_to resort.name, resort_path(resort), class: "resort_link"%></h1>
 
-      <div class="col-xs-10">
-
+    <hr>
 
       <p class="lead">
         <%= resort.name.to_s + ' has recieved ' + resort.snowfall.to_s  + ' inches of snowfall in the last 24 hours, resulting in a ' + resort.base.to_s + ' inch base. Today\'s temperatures will be around ' + resort.temp.to_s + ' degrees faregnheight. ' + ["Enjoy yourself!","Have fun out there!","Rip it up!","Don't die...","Not too shabby.","I'll hold your beer.","Call in sick."].sample  %>
       </p>
     </div>
-    <div class="col-xs-2">
+
+    <!-- <div class="col-xs-2">
 
       <p style="font-size: 1.5em; line-height: 2em;">
       <%= "Temp: " + resort.temp.to_s + " °F"%>
@@ -28,13 +30,52 @@
       <%= "Base: " + resort.base.to_s + " In" %>
       </p>
 
-      <!-- <p>
+      <p>
         <strong>Gnarlocity:</strong>
         <%= resort.gnarlocity %>
-      </p> -->
-    </div>
+      </p>
+    </div> -->
 </div>
-<hr>
 
   <% end %>
-</dov>
+  <br>
+  <p style="color: #777;text-align: center;">Scott Silverstein © 2016<p>
+  </div>
+</div>
+<script>
+
+        (function( $ ){
+
+          $.fn.fitText = function( kompressor, options ) {
+
+            // Setup options
+            var compressor = kompressor || 1,
+                settings = $.extend({
+                  'minFontSize' : Number.NEGATIVE_INFINITY,
+                  'maxFontSize' : Number.POSITIVE_INFINITY
+                }, options);
+
+            return this.each(function(){
+
+              // Store the object
+              var $this = $(this);
+
+              // Resizer() resizes items based on the object width divided by the compressor * 10
+              var resizer = function () {
+                $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+              };
+
+              // Call once to set.
+              resizer();
+
+              // Call on resize. Opera debounces their resize by default.
+              $(window).on('resize.fittext orientationchange.fittext', resizer);
+
+            });
+
+          };
+
+        }( jQuery ));
+        $(".resort_name").fitText(0.9);
+        $(".resort_stats").fitText(0.5);
+        </script>
