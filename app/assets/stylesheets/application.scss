@@ -19,6 +19,10 @@
  */
 
  /* Navigation Menu - Background */
+
+ .adp-placemark {
+   margin-top: 0 !important;
+ }
  @keyframes example {
     0%   { left:-60px; top:25px;}
     100%  { left:60; top:25px;}

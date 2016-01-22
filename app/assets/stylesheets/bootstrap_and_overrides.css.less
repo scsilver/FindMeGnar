@@ -28,6 +28,12 @@
 // Example:
 //general
 
+.header {
+  font-family: "Reeler";
+  font-size: 1.5em;
+  color: #777;
+  text-align: center;
+}
 .wrap{
   min-height: 100vh;
   min-width: 100vw;
@@ -51,13 +57,7 @@
 
 
 }
-.col-xs-3 {
-  border-right-style: solid;
-  border-right-width: 1px;
-  border-color: rgb(231, 231, 231);
-  min-height: 180px;
 
-}
 .boxy {
   min-height: 100%;
 
@@ -71,7 +71,7 @@
 color: #777;
   marquee {
     border-style: dotted;
-    border-width: 3px 0px 0px 0px;
+    border-width: 3px 0px 3px 0px;
     border-color: #777;
   }
   #user {
@@ -79,6 +79,12 @@ color: #777;
   }
 }
 
+
+.dot {
+  border-style: dotted;
+  border-width:3px 3px 3px 3px;
+  border-color: #777;
+}
 
 .box.mid {
 
@@ -95,9 +101,6 @@ color: #777;
 }
 .navbar.navbar-new  {
 
-  a:hover {
-      background-color: #555;
-  }
 
 
 }
@@ -168,7 +171,7 @@ color: #777;
    height: 50px;
    font-family: 'Verdana';
    border-style: solid;
-   border-color: #777;
+   border-color: #777 ;
    color: #777;
    display: inline-block;
    background-color: rgba(255,255,255,.50);
@@ -197,16 +200,19 @@ color: #777;
    display: inline-block;
    background-color: transparent;
    padding: 5px;
+   transition: color 0.5s, border-color 1s;
+   text-align: center;
+   border-width: 2px;
+ }
+ .submit a{
 
  }
- input {
-   transition: color 0.5s;
- }
-input:hover
+
+.submit:hover
  {
    color: #90A860;
    border-color: #90A860;
-
+   text-decoration: none;
  }
 .textfield {
    width: 100%;
@@ -243,6 +249,17 @@ p
     font-family: 'Reeler';
     src: font-url('Reeler.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Rough';
+    src: font-url('Rough.ttf') format('truetype');
+}
+.resort_stats {
+  font-family: 'Rough';
+  margin: 0px;
+  font-size: 2em;
+  text-align: center;
+
+}
 a:link {
     color: #333;
 }
@@ -252,11 +269,13 @@ a:visited {
 }
 
 /* mouse over link */
-a:hover {
-    color: #F8F8F8;
-    text-decoration: none;
-    font-size: 150;
+a .submit {
+  border-width: 1px;
+  transition: color 0.5s, border-color 1s;
+  margin: auto;
+
 }
+
 
 /* selected link */
 a:active {

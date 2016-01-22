@@ -11,12 +11,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
+//= require jquery.fittext
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require jquery.marquee
-//= require 'greensock/TweenMax'
-//= require moment
 //= require turbolinks
 //= require ajaxify_rails
 
@@ -42,7 +39,6 @@ $(function(){
  });
 });
 $(":checked").change(function(){
-  debugger;
   if($(this).is(':checked')){
     var w = $(window).width();
 
@@ -63,12 +59,13 @@ $(window).ready(function(){
    $(".site-wrap").height(h-66);
 
 
+
   // jQuery methods go here...
 
 });
 $(window).resize(function(){
    var h = $(window).height();
-   $(".site-wrap").height(h-66);
+   $(".site-wrap").height(h-66)
 
   // jQuery methods go here...
 

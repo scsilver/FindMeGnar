@@ -1,32 +1,32 @@
 <table class="table" style="padding-left: 10%; padding-right: 10%;">
   <thead>
-    <th>Name</th>
-    <th>Distance</th>
-    <th>Temperature</th>
-    <th>Base (in)</th>
-    <th>24 hour Snowfall (in)</th>
-    <th>Rides</th>
-    <th>Webcam</th>
+    <th class="header">Name</th>
+    <th class="header">Distance</th>
+    <th class="header">Temp</th>
+    <th class="header">Base</th>
+    <th class="header">Snowfall</th>
+    <!-- <th>Rides</th> -->
+    <!-- <th>Webcam</th> -->
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
     <tr>
-      <td><%= link_to resort.name, resort_path(resort.id, :location => @location) %></td>
-      <td><%= resort.distance_text %></td>
-      <td><%= resort.temp  %>
-        F&deg;</td>
-      <td><%= resort.base  %>
-        in</td>
-      <td><%= resort.snowfall  %>
-        in</td>
-      <td><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td>
+      <td class="resort_stats"><%= link_to resort.name, resort_path(resort.id, :location => @location),style: "font-size: 1.1em;" %></td>
+      <td class="resort_stats"><%= resort.distance_text %></td>
+      <td class="resort_stats"><%= resort.temp  %>
+        &deg; F</td>
+      <td class="resort_stats"><%= resort.base  %>
+        "</td>
+      <td class="resort_stats"><%= resort.snowfall  %>
+        "</td>
+      <!-- <td class="resort_stats"><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td> -->
 
-      <td><%- resort.webcam.split(",").each_with_index do |webc, i| %>
+      <!-- <td><%- resort.webcam.split(",").each_with_index do |webc, i| %>
         <a data-featherlight="image" href="<%= webc %>">Camera:
           <%=i+1%></a>
         <br>
         <%- end %>
-      </td>
+      </td> -->
     </tf>
   </tr>
 
