@@ -107,7 +107,7 @@
            var lat = loc.split(',')[0];
            var log = loc.split(',')[1];
            var latlog = 'lat='+lat+"&lng="+log;
-         var instagramUrl = 'https://api.instagram.com/v1/media/search?'+ latlog +'&distance=10000&callback=?&count=43';
+         var instagramUrl = 'https://api.instagram.com/v1/media/search?'+ latlog +'&distance=10000&callback=?&count=10';
          $.getJSON(instagramUrl, access_parameters, onDataLoaded);
 
      }
@@ -144,7 +144,7 @@
        var directionsService = new google.maps.DirectionsService;
        var map = new google.maps.Map(document.getElementById('map'), {
          zoom: 7,
-         center: {lat: 41.85, lng: -87.65}
+         center: {lat: 41.85, lng: -105.2519}
        });
        directionsDisplay.setMap(map);
        directionsDisplay.setPanel(document.getElementById('right-panel'));
