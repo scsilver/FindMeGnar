@@ -6,7 +6,22 @@
   <title>Displaying text directions with <code>setPanel()</code></title>
 </head>
 
-  <body>
+  <body class="">
+    <div class="res_nav" >
+      <h2 id="resort_link">Stats</h2>
+
+      <br>
+
+      <h2 id="photo_link">Photos</h2>
+
+      <br>
+
+      <h2 id="tweet_link">Tweets</h2>
+      <br>
+      <h2 id="road_link">Road Cams</h2>
+      <br>
+      <h2 id="directions_link">Directions</h2>
+    </div>
     <!-- Resort Instagrams -->
     <div style="width: 80%;margin: auto;padding-bottom: 10px;"class="container-fluid boxy">
       <div style="border-width: 0px 0px 3px 0px;"class="row dot">
@@ -37,9 +52,11 @@
 
 
 
-        <!-- Resort Tweets -->
+        <!-- Resort Instagrams -->
         <div class="row">
             <div class="col-xs-12">
+              <h1 id="photos" style="text-align: center;">Photos</h1>
+              <hr>
               <div style="padding: 15px; margin: 0px; border-width: 0px 0px 3px 0px;"class="container-fluid dot">
 
                 <div id="resort_instagrams"></div>
@@ -49,7 +66,10 @@
             </div>
           </div>
 
-        <div class="dot" style="padding:0px;height: 200px; overflow-y:hidden;border-width: 0px 0px 0px 0px;">
+
+        <div class="tweet dot" style="padding:0px;height: 200px; overflow-y:hidden;border-width: 0px 0px 3px 0px;">
+          <h1 id="tweets"  style="text-align: center;">Tweets</h1>
+          <hr>
           <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height="500px" width=100%>
             <p>
               <ul id="mark">
@@ -67,9 +87,23 @@
             </p>
           </marquee>
         </div>
-      <!-- Google Map to Resort -->
-      <div class="row dot" style="border-width: 3px 0px 3px 0px;">
 
+        <div class="row">
+            <div class="col-xs-12">
+              <h1 id="cams" style="text-align: center;">Road Cameras</h1>
+              <hr>
+
+              <div style="padding: 15px; margin: 0px; border-width: 0px 0px 3px 0px;"class="container-fluid dot">
+                <div id="cdot_cams"></div>
+
+              </div>
+
+            </div>
+          </div>
+      <!-- Google Map to Resort -->
+      <div class="row dot" style="border-width: 0px 0px 4px 0px;">
+        <h1 id="directions" style="text-align: center;">Directions</h1>
+        <hr>
 
           <div style="padding: 0px;" class="col-xs-6">
 
@@ -86,9 +120,10 @@
 
 
 
-      <br>
+      <!-- <br>
       <p style="color: #777;text-align: center;">Scott Silverstein © 2016<p>
-      </div>
+      </div> -->
+      <br>
   </body>
 <script>
 
@@ -144,6 +179,9 @@
          zoom: 7,
          center: {lat: 41.85, lng: -105.2519}
        });
+
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
        directionsDisplay.setMap(map);
        directionsDisplay.setPanel(document.getElementById('right-panel'));
        document.getElementById('right-panel')
@@ -157,7 +195,6 @@
        };
 
      }
-
      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
        var start_point;
        var end_point;
@@ -169,17 +206,342 @@
        }
        directionsService.route({
          origin: from_area,
+
          destination: '<%=@resort.address%>',
-         travelMode: google.maps.TravelMode.DRIVING
+         travelMode: google.maps.TravelMode.DRIVING,
+         drivingOptions: {
+    departureTime: new Date(1453608879),
+    trafficModel: google.maps.TrafficModel.PESSIMISTIC
+  }
+
+
        }, function(response, status) {
          if (status === google.maps.DirectionsStatus.OK) {
            directionsDisplay.setDirections(response);
+           camerasearch(response);
          } else {
            window.alert('Directions request failed due to ' + status);
          }
        });
 
      }
+     function camerasearch(response){
+
+       var cameras= [
+
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W219.70-1_2mi-E_of_Hermans_Gulch-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":119,
+           "lat":39.701853988,
+           "lng":-105.3346729048
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070M26094-W-OF-6TH-AVE-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":195,
+           "lat":39.5034461606,
+           "lng":-106.1473112768
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070M26094-W-OF-6TH-AVE-W.jpg&v=00443",
+           "road":70,
+           "direction":"E",
+           "mile_marker":197,
+           "lat":39.5263107857,
+           "lng":-106.1381584276
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV006E27580-I70-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":198,
+           "lat":39.5392924018,
+           "lng":-106.1426582798
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV006E27580-I70-W.jpg&v=00443",
+           "road":70,
+           "direction":"E",
+           "mile_marker":198,
+           "lat":39.5391142196,
+           "lng":-106.1423621001
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25908-0_34mi-E-OF-MORRISON-EXIT-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":205,
+           "lat":39.6242428482,
+           "lng":-106.0730010656
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25908-0_34mi-E-OF-MORRISON-EXIT-W.jpg&v=00443",
+           "road":70,
+           "direction":"E",
+           "mile_marker":205,
+           "lat":39.624005808,
+           "lng":-106.072438198
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E25700-MT-VERNON-E.jpg&v=00443",
+           "road":70,
+           "direction":"E",
+           "mile_marker":210,
+           "lat":39.6575587546,
+           "lng":-105.993014
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E25700-MT-VERNON-W.jpg&v=00443",
+           "road":70,
+           "direction":"E",
+           "mile_marker":215,
+           "lat":39.6816371077,
+           "lng":-105.8910657552
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25600-LOOKOUT-MTN-E.jpg",
+           "road":70,
+           "direction":"M",
+           "mile_marker":215,
+           "lat":39.6857525535,
+           "lng":-105.8849703384
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25470-GENESEE-PARK-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":216,
+           "lat":39.6853203439,
+           "lng":-105.8857593307
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25370-GENESEE-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":217,
+           "lat":39.6922378148,
+           "lng":-105.8782266094
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25070-EL-RANCHO-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":219,
+           "lat":39.7018890716,
+           "lng":-105.8453680814
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W25070-EL-RANCHO-W.jpg",
+           "road":70,
+           "direction":"E",
+           "mile_marker":222,
+           "lat":39.6956654503,
+           "lng":-105.7928536314
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W24905-WB-SODA-CREEK-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":225,
+           "lat":39.6955789234,
+           "lng":-105.7391538865
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E24900-EB-SODA-CREEK-E.jpg",
+           "road":70,
+           "direction":"E",
+           "mile_marker":226,
+           "lat":39.6975332997,
+           "lng":-105.720332042
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E24760-BREAVER-BROOK-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":228,
+           "lat":39.7166382868,
+           "lng":-105.6962824773
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E24650-TOP-FLOYD-HILL-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":233,
+           "lat":39.7637519516,
+           "lng":-105.6359589448
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E24600-EAST-FLOYD-HILL-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":234,
+           "lat":39.7660072372,
+           "lng":-105.6179205125
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W24500-WEST-FLOYD-HILL-E.jpg",
+           "road":70,
+           "direction":"E",
+           "mile_marker":237,
+           "lat":39.7562940502,
+           "lng":-105.5644501282
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E238.00-Stanley-Rd-E.jpg&v=00443",
+           "road":70,
+           "direction":"E",
+           "mile_marker":238,
+           "lat":39.7497832013,
+           "lng":-105.5486743759
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W24250-HIDDEN-VALLEY-E.jpg",
+           "road":70,
+           "direction":"E",
+           "mile_marker":238,
+           "lat":39.7496154622,
+           "lng":-105.5489523669
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/CTMCCAM070E238-05-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":242,
+           "lat":39.7413510144,
+           "lng":-105.4960731636
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/CTMCCAM070E237-20-E.jpg&v=00443",
+           "road":70,
+           "direction":"W",
+           "mile_marker":245,
+           "lat":39.7439134768,
+           "lng":-105.4434629283
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E22200-BAKERVILLE-INT-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":250,
+           "lat":39.706323673,
+           "lng":-105.3451995907
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W21740-LOVELAND-VMS-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":253,
+           "lat":39.7127757739,
+           "lng":-105.3040648416
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W21660-LOVELAND-PASS-EXIT-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":254,
+           "lat":39.709294185,
+           "lng":-105.2863243339
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E215-E-PORTAL-EJT-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":256,
+           "lat":39.7039998183,
+           "lng":-105.2504258877
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E21080-STRAIGHT-CREEK-E.jpg",
+           "road":70,
+           "direction":"E",
+           "mile_marker":257,
+           "lat":39.6982054004,
+           "lng":-105.2341180454
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070M21500-EJT-TOUR-W.jpg",
+           "road":70,
+           "direction":"E",
+           "mile_marker":257,
+           "lat":39.6985896202,
+           "lng":-105.2340347698
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E20500-SILVERTHORNE-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":259,
+           "lat":39.7076567931,
+           "lng":-105.1973327659
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W20570-SILVERTHORNE-E.jpg",
+           "road":70,
+           "direction":"W",
+           "mile_marker":259,
+           "lat":39.7018047107,
+           "lng":-105.201880128
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070E19835-E-OF-OFFICERS-GULCH-E.jpg",
+           "road":70,
+           "direction":"M",
+           "mile_marker":260,
+           "lat":39.7145818385,
+           "lng":-105.192704596
+         },
+         {
+           "url":"http://i.cotrip.org/dimages/camera?imageURL=remote/TOCCCTV070W19860-MM198_6-E.jpg",
+           "road":70,
+           "direction":"M",
+           "mile_marker":260,
+           "lat":39.7143708067,
+           "lng":-105.1922503609
+         }
+       ]
+
+
+       var match = [];
+       var dist  =  0.001;
+
+       for (var i= 0; i < response.routes[0].overview_path.length; i++){
+         var lat = response.routes[0].overview_path[i].lat();
+         var lng = response.routes[0].overview_path[i].lng();
+         //check camera array for close cam within 1mile
+
+         for (var camera in cameras) {
+           clat = cameras[camera].lat;
+           clng = cameras[camera].lng;
+
+           if (clat > lat - dist  && clat < lat + dist  &&  clng > lng - dist  && clng < lng + dist){
+
+               match.push(cameras[camera].url);
+
+           }
+         }
+
+     }
+     displayCameras(match);
+
+
+     }
+     function displayCameras(match) {
+       var cdot = $("#cdot_cams");
+
+       cdot.empty();
+       //make array of url into posted images
+       for (var photo in match){
+         if (photo < 10){
+
+       cdot.append('<a class="inst_cont" href='+match[photo]+'><img class="inst" src=' + match[photo] + '></a>');
+     }
+     }
+
+     }
+
 
    //$.ajax({
    //  type: "GET",
@@ -203,6 +565,7 @@
         *
         * Date: Thu May 05 14:23:00 2011 -0600
         */
+
 
         (function( $ ){
 
@@ -239,6 +602,36 @@
         $(".resort_name").fitText(0.9);
         $(".resort_stats").fitText(0.5);
 
+        $("#resort_link").click(function() {
+          var destination = $(".boxy").offset().top;
+            $('html, .site-wrap').animate({
+                scrollTop: '+=' + destination
+            }, 1000);
+        });
+        $("#photo_link").click(function() {
+          var destination = $("#photos").offset().top - 23;
+            $('html, .site-wrap').animate({
+                scrollTop: '+=' + destination
+            }, 1000);
+        });
+        $("#tweet_link").click(function() {
+          var destination = $("#tweets").offset().top - 23;
+            $('html, .site-wrap').animate({
+                scrollTop: '+=' + destination
+            }, 1000);
+        });
+        $("#road_link").click(function() {
+          var destination = $("#cams").offset().top - 23;
+            $('html, .site-wrap').animate({
+                scrollTop: '+=' + destination
+            }, 1000);
+        });
+        $("#directions_link").click(function() {
+          var destination = $("#directions").offset().top - 23;
+            $('html, .site-wrap').animate({
+                scrollTop: '+=' + destination
+            }, 1000);
+        });
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb3ZSbRxq6PQSsJmpTT9bR79HghrI9_LE&signed_in=true&callback=initMap"

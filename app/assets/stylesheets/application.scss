@@ -53,6 +53,7 @@
   width: 150px;
   border-top: 1px solid #111;
   border-bottom: 1px solid #000;
+
 }
 
 .nav-item a {
@@ -127,13 +128,20 @@ a:hover {
   z-index: 1;
   overflow-y: auto;
   /* non-critical apperance styles */
-  padding: 1em 1em 1em 6em;
+  padding: 1em 1em 1em 3em;
   padding-left: 120px !important;
   background-size: 200%;
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 
 }
+.res_nav {
+  position: fixed;
 
+  bottom: 80px;
+    right: 20px;
+  z-index: 1;
+
+}
 /* Nav Trigger */
 .nav-trigger {
   /* critical styles - hide the checkbox input */
@@ -177,17 +185,22 @@ label[for="nav-trigger"]:hover {
 
 /* Make the Magic Happen */
 .nav-trigger + label, .site-wrap {
+
   transition: left 0.2s;
 }
 
 .nav-trigger:checked + label {
   left: 210px;
+
+
 }
 
-.nav-trigger:checked ~ .site-wrap {
+.nav-trigger:checked ~ .site-wrap  {
   left: 150px;
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+
 }
+
 
 body {
 	/* Without this, the body has excess horizontal scroll when the menu is open */
