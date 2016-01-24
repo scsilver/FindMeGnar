@@ -201,7 +201,14 @@ label[for="nav-trigger"]:hover {
 
 }
 
+#img{
+  position: relative;
+  background-image: url("ski.jpeg");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
 
+}
 body {
 	/* Without this, the body has excess horizontal scroll when the menu is open */
   overflow-x: hidden;
