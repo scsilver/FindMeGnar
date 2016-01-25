@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html xml:lang="en" lang="en" class="htmlnew">
-<div id="img" style="width: 80%;margin: auto;"class="container-fluid boxy">
+<div style="width: 100%;padding: 0px;background-color: transparent;position: fixed ;bottom: 38px;left: 0px;"class="container-fluid">
+<div class="boxy" style="padding: 0px;" >
+      <div class="row " style="padding: 15px;">
 
-    <div class="col-xs-6 box">
-      <div class="boxy">
-        <h1 style="font-size: 3.5em;">Find Me Gnar</h1>
-        <p>
+      <div class="col-xs-8 "style="z-index: 2; ">
+        <h1 style="font-size: 7em;color: white; text-align: center;">Find Me Gnar</h1>
+        <hr>
+        <h2 style="color: #333; float: center; text-align: center;">
           Enter your location to find the best snow around
-        </p>
+        </h2>
+
+
+      </div>
+      <div class="col-xs-4 boxy" style="max-height:300px; background-color: transparent">
         <%= render 'form' %>
       </div>
     </div>
+
     <!-- <div class="col-xs-4 box mid">
 
       <div class="boxy">
@@ -23,28 +30,8 @@
       </div>
 
     </div> -->
-    <div class="col-xs-6 box">
-      <div class="boxy mark">
-        <marquee onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="down" scrollamount="2" height="350" width=100%>
-          <p>
-            <ul id="mark">
-              <% Tweet.last(100).each do |f| %>
-                <hr>
-                <li>
-                  <p id="user">
-                    <%= f.user + ":"%>
-                  </p>
-                  <%= auto_link(f.content, :html => { :target => '_blank' }) %>
 
-                </li>
-                <% end %>
-            </ul>
-          </p>
-        </marquee>
-      </div>
-    </div>
     </div>
 </div>
-<div id="img">
-</div>
+
 </html>

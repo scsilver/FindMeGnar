@@ -20,6 +20,16 @@ h1 {
   .resort_link:hover {
     color: #618f6d;
   }
+  #background {
+    position: fixed;
+    background-image: url("mnt.jpg") !important;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: cover;
+    bottom: 38px;
+    width: 100%;
+    height: 100%;
+  }
 
   // Place all the styles related to the resorts controller here.
   // They will automatically be included in application.css.

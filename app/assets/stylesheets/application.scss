@@ -128,18 +128,18 @@ a:hover {
   z-index: 1;
   overflow-y: auto;
   /* non-critical apperance styles */
-  padding: 1em 1em 1em 3em;
-  padding-left: 120px !important;
+  padding: 1em 4em 1em 4em;
   background-size: 200%;
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 
 }
 .res_nav {
-  position: fixed;
 
-  bottom: 80px;
-    right: 20px;
   z-index: 1;
+  margin: auto;
+  height: 50%;
+  padding: 1em;
+  position: fixed;
 
 }
 /* Nav Trigger */
@@ -201,14 +201,27 @@ label[for="nav-trigger"]:hover {
 
 }
 
-#img{
-  position: relative;
+#background {
+  position: fixed;
   background-image: url("ski.jpeg");
   background-repeat: no-repeat;
-  background-position: right top;
-  background-size: contain;
+  background-position: left bottom;
+  background-size: cover;
+  
+  bottom: 38px;
+  width: 100%;
+  height: 100%;
+}
+.res{
+  color: #F8F8F8 !important;
 
 }
+.res:hover {
+    color: #90A860 !important;
+
+    transition: color 0.5s;
+}
+
 body {
 	/* Without this, the body has excess horizontal scroll when the menu is open */
   overflow-x: hidden;
