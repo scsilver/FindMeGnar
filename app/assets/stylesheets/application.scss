@@ -108,10 +108,10 @@ a:hover {
 }
 
 
-/* Site Wrapper - Everything that isn't navigation */
+/* Site pper - Everything that isn't navigation */
 .site-wrap {
   /* Critical position and size styles */
-  background-color: #F8F8F8;; /* Needs a background or else the nav will show through */
+  background-color: #F8F8F8 !important; /* Needs a background or else the nav will show through */
   position: relative;
   top: 0;
   bottom: 100%;
