@@ -1,4 +1,25 @@
-<div style="width: 80%;margin: auto;"class="container-fluid boxy">
+
+<div class="res_nav boxy" style="z-index: 3; padding: 15px;">
+  <div class="col-xs-6">
+  <h1 style="float: left;font-size: 60px; padding-bottom:5px;margin: 0px;"><%= link_to "FMG", root_path %></h1>
+</div>
+<div class="col-xs-6">
+
+<div class="row" style="margin: 0;">
+  <h3  style="margin: 0px;float: right;font-size: 30px;font-family: 'Rough';"><%= link_to "Resorts", resorts_path %></h3>
+</div>
+<div class="row" style="margin: 0;">
+
+  <h3  style="margin: 0px;float: right; font-size: 30px;font-family: 'Rough';"><%= link_to "About", about_path %></h3>
+</div>
+</div>
+
+
+</div>
+
+<div class="headimgres">
+</div>
+<div style="width: 80%;padding-top: 430px ;margin: auto;"class="container-fluid boxy">
   <div class="row">
     <div class="col-xs-12 dot">
   <h1 style="text-align: center;" class="resort_name">Resorts</h1>
@@ -9,7 +30,7 @@
   <div style="border-width: 3px 0px 0px 0px;"class="row dot">
     <div class="col-xs-12">
 
-    <h1 class="resort_name"><%=link_to resort.name, resort_path(resort), class: "resort_link"%></h1>
+    <h2 style="font-size: 3em;"><%=link_to resort.name, resort_path(resort), class: "resort_link"%></h2>
 
     <hr>
 

@@ -1,23 +1,23 @@
 <table class="table" style="padding-left: 0%; padding-right: 0%; font-family:"Verdana"";>
   <thead>
-    <th class="">Name</th>
-    <th class="">Distance</th>
-    <th class="">Temp</th>
-    <th class="">Base</th>
-    <th class="">Snowfall</th>
+    <th class="header" style="border-width: 0;">Name</th>
+    <th class="header" style="border-width: 0;">Distance</th>
+    <th class="header" style="border-width: 0;">Temp</th>
+    <th class="header" style="border-width: 0;">Base</th>
+    <th class="header" style="border-width: 0;">Snowfall</th>
     <!-- <th>Rides</th> -->
     <!-- <th>Webcam</th> -->
   </thead>
   <tbody>
     <%- @resorts.each do |resort| %>
     <tr>
-      <td class="resort_stats"><%= link_to resort.name, resort_path(resort.id, :location => @location),style: "font-size: 1.1em;" %></td>
-      <td class="resort_stats"><%= resort.distance_text %></td>
-      <td class="resort_stats"><%= resort.temp  %>
+      <td class="" ><%= link_to resort.name, resort_path(resort.id, :location => @location),style: "font-size: 1.1em;" %></td>
+      <td class="" style="text-align: center;"><%= resort.distance_text %></td>
+      <td class="" style="text-align: center;"><%= resort.temp  %>
         &deg; F</td>
-      <td class="resort_stats"><%= resort.base  %>
+      <td class="" style="text-align: center;"><%= resort.base  %>
         "</td>
-      <td class="resort_stats"><%= resort.snowfall  %>
+      <td class="" style="text-align: center;"><%= resort.snowfall  %>
         "</td>
       <!-- <td class="resort_stats"><%= link_to Ride.where(resort_to: resort.name).count, rides_path(resort_to: resort.name) %></td> -->
 

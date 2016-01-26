@@ -20,23 +20,11 @@
 </script>
 </head>
 <body>
-  <div id="background">
-  </div>
+
   <!-- Fixed navbar -->
-  <div class="res_nav" style="z-index: 3;max-height: 200px;">
-    <h1 style="float: left;font-size: 5em; padding-bottom:5px;margin: 0px;"><%= link_to "FMG", root_path %></h1>
 
-      <br>
 
-    <h3  style="float: left;font-size: 2em;font-family: 'Rough';"><%= link_to "Resorts", resorts_path %></h3>
-
-    <br>
-
-    <h3  style="float: left;font-size: 2em;font-family: 'Rough';"><%= link_to "About", about_path %></h3>
-
-  </div>
-
-    <div style="z-index: 2; background-color: transparent;"class="site-wrap" id="main">
+    <div style="z-index: 2;  background-color: transparent;"class="site-wrap" id="main">
 
       <%= yield %>
     </div>

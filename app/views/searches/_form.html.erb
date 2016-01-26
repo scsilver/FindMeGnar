@@ -13,16 +13,16 @@
 </div>
 <% end %>
 
-<div onclick="getLocation()" class="submit">Find Me</div>
+<div onclick="getLocation()" class="submit" style="font-size: 3em !important;line-height: 1em !important;">Find Me</div>
 
 <p id="feedback"></p>
 
 <div class="actions">
   <div class="field">
-    <%= f.label :location %><br/>
-    <%= f.text_field :location, :class => 'textfield' %>
+    <%= f.label :location,  style:'margin: auto;' %><br/>
+    <%= f.text_field :location, {:class => 'textfield', style:'border-radius: 5px;'} %>
   </div>
-  <%= f.submit 'Submit', :class => 'submit' %>
+  <%= f.submit 'Submit', {class: 'submit', style: "font-size: 3em !important;line-height: 1.4em !important;"} %>
 </div>
 <% end %>
 <script>

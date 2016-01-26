@@ -1,6 +1,24 @@
 <html class="htmlshow">
+
+<div class="res_nav boxy" style="z-index: 3; padding: 15px;">
+  <div class="col-xs-6">
+  <h1 style="float: left;font-size: 60px; padding-bottom:5px;margin: 0px;"><%= link_to "FMG", root_path %></h1>
+</div>
+<div class="col-xs-6">
+
+<div class="row" style="margin: 0;">
+  <h3  style="margin: 0px;float: right;font-size: 30px;font-family: 'Rough';"><%= link_to "Resorts", resorts_path %></h3>
+</div>
+<div class="row" style="margin: 0;">
+
+  <h3  style="margin: 0px;float: right; font-size: 30px;font-family: 'Rough';"><%= link_to "About", about_path %></h3>
+</div>
+</div>
+
+
+</div>
 <!-- Wrap all page content here -->
-<div style="width: 80%;margin: auto;"class="container-fluid boxy">
+<div style="width: 80%;margin: auto; padding-top: 80px;"class="container-fluid boxy">
 
     <div class="container-fluid">
       <%= render 'table' %>
