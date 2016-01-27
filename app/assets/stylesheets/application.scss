@@ -203,7 +203,24 @@ label[for="nav-trigger"]:hover {
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
 
 }
+.logo1 {
+  fill: blue;
+}
+.centered {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
 
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-image: url("lgo.svg");
+  background-repeat: no-repeat;
+
+  background-size: cover;
+}
 .headimgres {
   position: absolute;;
   background-image: url("Background.jpg");

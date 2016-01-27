@@ -1,9 +1,11 @@
+# Get Stats
 class GetStats
   def self.weather_update_1
     @resorts = Resort.where(id: 1..7)
     @resorts.each do |r|
       apikey = 'f8096e4064a18bec'
-      url = "http://api.wunderground.com/api/#{apikey}/conditions/q/#{r.address}.json"
+      url = "http://api.wunderground.com/api/#{apikey}/conditions/q/
+      #{r.address}.json"
       @results = HTTParty.get url
       r.temp = @results['current_observation']['temp_f']
       r.save
@@ -15,7 +17,8 @@ class GetStats
     @resorts = Resort.where(id: 7..15)
     @resorts.each do |r|
       apikey = 'f8096e4064a18bec'
-      url = "http://api.wunderground.com/api/#{apikey}/conditions/q/#{r.address}.json"
+      url = "http://api.wunderground.com/api/#{apikey}/conditions/q/
+      #{r.address}.json"
       @results = HTTParty.get url
       r.temp = @results['current_observation']['temp_f']
       r.save
@@ -27,7 +30,8 @@ class GetStats
     @resorts = Resort.where(id: 15..22)
     @resorts.each do |r|
       apikey = 'f8096e4064a18bec'
-      url = "http://api.wunderground.com/api/#{apikey}/conditions/q/#{r.address}.json"
+      url = "http://api.wunderground.com/api/#{apikey}/conditions/q/
+      #{r.address}.json"
       @results = HTTParty.get url
       r.temp = @results['current_observation']['temp_f']
       r.save
@@ -42,10 +46,15 @@ class GetStats
     @resorts.each do |resort|
       page = mechanize.get(resort['scrape_url']) if resort['scrape_url'] != ''
       if resort['scrape_xpath_24hr'] != ''
-        resort['snowfall'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_24hr'] + '/text()')).to_s.chomp(' \"').to_i
+        resort['snowfall'] = page
+                             .search(CGI
+                             .unescapeHTML(resort['scrape_xpath_24hr'] +
+                             '/text()')).to_s.chomp(' \"').to_i
       end
       if resort['scrape_xpath_base'] != ''
-        resort['base'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_base'] + '/text()')).to_s.chomp(' \"').to_i
+        resort['base'] = page
+                         .search(CGI.unescapeHTML(resort['scrape_xpath_base'] +
+                         '/text()')).to_s.chomp(' \"').to_i
       end
       # if resort['scrape_xpath_temp'] != ""
       #  resort['temp'] = page.search(CGI.unescapeHTML(resort['scrape_xpath_temp']+"/text()")).to_s.chomp(' \"').to_i
