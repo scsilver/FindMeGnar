@@ -30,7 +30,7 @@
 
 
   <body class="">
-    <div class="res_nav_side" style="text-align:left;left: 1em;">
+    <div class="res_nav_side" style="text-align:left;left: 1em;width: 15%;">
       <h2 class="res" id="resort_link">Stats</h2>
 
 
@@ -149,6 +149,7 @@
   </body>
 <script>
   // <!-- Resort Instagram Script -->
+  var match = [];
 
 
      var access_token = "16384709.6ac06b4.49b97800d7fd4ac799a2c889f50f2587",
@@ -209,14 +210,14 @@
        //var control = document.getElementById('floating-panel');
        //control.style.display = 'block';
        //map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
-       window.onload = calculateAndDisplayRoute(directionsService, directionsDisplay);
+       window.onload = calculateAndDisplayRoute(directionsService, directionsDisplay,map);
 
        var onChangeHandler = function() {
-         calculateAndDisplayRoute(directionsService, directionsDisplay);
+         calculateAndDisplayRoute(directionsService, directionsDisplay, map);
        };
 
      }
-     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+     function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
        var start_point;
        var end_point;
        var from_area;
@@ -239,15 +240,14 @@
        }, function(response, status) {
          if (status === google.maps.DirectionsStatus.OK) {
            directionsDisplay.setDirections(response);
-           camerasearch(response);
+           camerasearch(response,map);
          } else {
            window.alert('Directions request failed due to ' + status);
          }
        });
 
      }
-     function camerasearch(response){
-       debugger;
+     function camerasearch(response, map){
        var cameras= [
 
          {
@@ -525,7 +525,6 @@
        ]
 
 
-       var match = [];
        var dist  =  0.001;
 
        for (var i= 0; i < response.routes[0].overview_path.length; i++){
@@ -539,17 +538,38 @@
 
            if (clat > lat - dist  && clat < lat + dist  &&  clng > lng - dist  && clng < lng + dist){
 
-               match.push(cameras[camera].url);
+               match.push(cameras[camera]);
 
            }
+           ;
          }
 
      }
-     displayCameras(match);
+     displayCameras(match, map);
+     var marker, i;
+     var infowindow = new google.maps.InfoWindow();
 
+     for (i = 0; i < match.length; i++) {
+          marker = new google.maps.Marker({
+          position: new google.maps.LatLng(match[i].lat, match[i].lng),
+          label: match[i].mile_marker,
+          map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent('<img class="markerimg" src="' + match[i].url + '"><H3>Mile: ' + match[i].mile_marker + '  Direction: ' + match[i].direction + '</H3>');
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+
+
+
+      }
 
      }
-     function displayCameras(match) {
+     function displayCameras(match, map) {
+
        var cdot = $("#cdot_cams");
 
        cdot.empty();
@@ -557,7 +577,13 @@
        for (var photo in match){
          if (photo < 10){
 
-       cdot.append('<a class="inst_cont" href='+match[photo]+'><img class="inst" src=' + match[photo] + '></a>');
+
+
+
+
+
+
+       cdot.append('<a class="inst_cont" href='+match[photo].url+'><img class="inst" src=' + match[photo].url + '></a>');
      }
      }
 
